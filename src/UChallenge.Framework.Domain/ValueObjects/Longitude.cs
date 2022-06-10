@@ -14,7 +14,7 @@ namespace UChallenge.Framework.Domain.ValueObjects
         public Longitude(double value)
         {
             if (value < MINVALUE || value > MAXVALUE)
-                throw new DomainFieldInvalidLengthException(Resources.Longitude, MINVALUE, MAXVALUE);
+                throw new DomainFieldInvalidNumberOutOfRangeException(Resources.Longitude, MINVALUE, MAXVALUE);
 
             _value = value;
         }

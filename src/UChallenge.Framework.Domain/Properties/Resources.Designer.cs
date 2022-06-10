@@ -61,6 +61,15 @@ namespace UChallenge.Framework.Domain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &apos;{0}&apos; must be a number between {1} and {2}..
+        /// </summary>
+        public static string Field_Invalid_Number_OutOfRange {
+            get {
+                return ResourceManager.GetString("Field_Invalid_Number_OutOfRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &apos;{0}&apos; length is invalid. Should be between {0} and {1} characters..
         /// </summary>
         public static string Field_InvalidLength {
@@ -70,20 +79,20 @@ namespace UChallenge.Framework.Domain.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &apos;{0}&apos; must be a number greater than zero..
-        /// </summary>
-        public static string Field_InvalidNumber_MustBeGreatherThenZero {
-            get {
-                return ResourceManager.GetString("Field_InvalidNumber_MustBeGreatherThenZero", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to &apos;{0}&apos; is Required. Please, inform a value..
         /// </summary>
         public static string Field_IsRequired {
             get {
                 return ResourceManager.GetString("Field_IsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &apos;{0}&apos; must be a number greater than zero..
+        /// </summary>
+        public static string Field_IsRequired_Number_MustBeGreatherThenZero {
+            get {
+                return ResourceManager.GetString("Field_IsRequired_Number_MustBeGreatherThenZero", resourceCulture);
             }
         }
         
