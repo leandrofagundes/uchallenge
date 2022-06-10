@@ -1,4 +1,6 @@
 ﻿using System;
+using UChallenge.Framework.Domain.Exceptions;
+using UChallenge.Framework.Domain.Properties;
 
 namespace UChallenge.Framework.Domain.ValueObjects
 {
@@ -12,7 +14,7 @@ namespace UChallenge.Framework.Domain.ValueObjects
         public Latitude(double value)
         {
             if (value < MINVALUE || value > MAXVALUE)
-                throw new ArgumentOutOfRangeException("TODO");
+                throw new DomainFieldInvalidLengthException(Resources.Longitude, MINVALUE, MAXVALUE);
 
             _value = value;
         }
