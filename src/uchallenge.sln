@@ -3,23 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UChallenge.WebAPI", "UChallenge.WebAPI\UChallenge.WebAPI.csproj", "{B9489008-6ECD-45D7-890F-290D9CAF7EDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UChallenge.WebAPI", "UChallenge.WebAPI\UChallenge.WebAPI.csproj", "{B9489008-6ECD-45D7-890F-290D9CAF7EDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UChallenge.Application", "UChallenge.Application\UChallenge.Application.csproj", "{BC7ED061-A45D-44D8-8AC4-D6F7C31FED7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UChallenge.Application", "UChallenge.Application\UChallenge.Application.csproj", "{BC7ED061-A45D-44D8-8AC4-D6F7C31FED7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UChallenge.Domain", "UChallenge.Domain\UChallenge.Domain.csproj", "{72A83905-835F-4FBA-AD57-5662432F54F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UChallenge.Domain", "UChallenge.Domain\UChallenge.Domain.csproj", "{72A83905-835F-4FBA-AD57-5662432F54F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UChallenge.MSSQL", "UChallenge.MSSQL\UChallenge.MSSQL.csproj", "{21F7361B-B826-41E6-BD7D-D7038F2542DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UChallenge.MSSQL", "UChallenge.MSSQL\UChallenge.MSSQL.csproj", "{21F7361B-B826-41E6-BD7D-D7038F2542DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UChallenge.Framework.Domain", "UChallenge.Framework.Domain\UChallenge.Framework.Domain.csproj", "{71A97E51-A3FB-4929-A959-854AE818FD4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UChallenge.Framework.Domain", "UChallenge.Framework.Domain\UChallenge.Framework.Domain.csproj", "{71A97E51-A3FB-4929-A959-854AE818FD4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UChallenge.Framework.Application", "UChallenge.Framework.Application\UChallenge.Framework.Application.csproj", "{17E7173A-BF28-433E-830C-E1C77967BA9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UChallenge.Framework.Application", "UChallenge.Framework.Application\UChallenge.Framework.Application.csproj", "{17E7173A-BF28-433E-830C-E1C77967BA9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UChallenge.Framework.WebAPI", "UChallenge.Framework.WebAPI\UChallenge.Framework.WebAPI.csproj", "{32F64929-FFC1-4E47-A8EA-FEC773694695}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UChallenge.Framework.WebAPI", "UChallenge.Framework.WebAPI\UChallenge.Framework.WebAPI.csproj", "{32F64929-FFC1-4E47-A8EA-FEC773694695}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UChallenge.Domain.Tests", "UChallenge.Domain.Tests\UChallenge.Domain.Tests.csproj", "{95B4FD64-CC35-48FF-82F9-0ADD5364431F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UChallenge.Domain.Tests", "UChallenge.Domain.Tests\UChallenge.Domain.Tests.csproj", "{95B4FD64-CC35-48FF-82F9-0ADD5364431F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UChallenge.Application.Tests", "UChallenge.Application.Tests\UChallenge.Application.Tests.csproj", "{C241EB75-BF52-43D7-9183-AF5532EAB72A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UChallenge.Application.Tests", "UChallenge.Application.Tests\UChallenge.Application.Tests.csproj", "{C241EB75-BF52-43D7-9183-AF5532EAB72A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - assets", "0 - assets", "{8E416612-FE2E-4716-8ECE-5F527F6810BE}"
 EndProject
@@ -56,6 +56,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DDLs", "DDLs", "{0128AB63-1
 		..\scripts\DDLs\CreateDatabase_UChallenge_V1.sql = ..\scripts\DDLs\CreateDatabase_UChallenge_V1.sql
 		..\scripts\DDLs\CreateTable_FeiraLivre_V1.sql = ..\scripts\DDLs\CreateTable_FeiraLivre_V1.sql
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UChallenge.MockDB", "UChallenge.MockDB\UChallenge.MockDB.csproj", "{A036E8B6-F9F0-47E9-B3F8-E2D46375188D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +101,10 @@ Global
 		{C241EB75-BF52-43D7-9183-AF5532EAB72A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C241EB75-BF52-43D7-9183-AF5532EAB72A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C241EB75-BF52-43D7-9183-AF5532EAB72A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A036E8B6-F9F0-47E9-B3F8-E2D46375188D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A036E8B6-F9F0-47E9-B3F8-E2D46375188D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A036E8B6-F9F0-47E9-B3F8-E2D46375188D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A036E8B6-F9F0-47E9-B3F8-E2D46375188D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -118,6 +124,7 @@ Global
 		{343FEECF-ECB6-49E7-8BF7-DF4558C58EC9} = {8E416612-FE2E-4716-8ECE-5F527F6810BE}
 		{FB11AC74-B0A5-487B-B11C-E96E4AD9E2C7} = {560442E9-3ED4-4308-9E1C-79E1F1444052}
 		{0128AB63-143A-4741-A2DA-10EDCF7F5E16} = {560442E9-3ED4-4308-9E1C-79E1F1444052}
+		{A036E8B6-F9F0-47E9-B3F8-E2D46375188D} = {86086B36-9488-4AC7-AF47-2219E8E023E6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0E2F33B4-9AAF-4B3D-90D1-CE8E0F0146C7}
