@@ -7,19 +7,19 @@ namespace UChallenge.Domain.FeiraLivreAggregates
         FeiraLivre Create(long id,
             string nomeFeira,
             string registroFeira,
-            string logradouro,
-            string numero,
-            string bairro,
-            string referencia,
-            long codigoDistrito,
-            string nomeDistrito,
             Longitude longitude,
             Latitude latitude,
             long setorCensitario,
             long areaDePonderacao,
+            int codigoDistrito,
+            string nomeDistrito,
             int codigoSubPrefeitura,
             string nomeSubPrefeitura,
             string regiaoPorDivisaoEm5Areas,
-            string regiaoPorDivisaoEm8Areas);
+            string regiaoPorDivisaoEm8Areas,
+            string logradouro,
+            string numero,
+            string bairro,
+            string referencia);
     }
 }

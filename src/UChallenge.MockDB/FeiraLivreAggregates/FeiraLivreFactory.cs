@@ -1,11 +1,12 @@
-﻿using UChallenge.Framework.Domain.ValueObjects;
+﻿using UChallenge.Domain.FeiraLivreAggregates;
+using UChallenge.Framework.Domain.ValueObjects;
 
-namespace UChallenge.MSSQL.FeiraLivreAggregates
+namespace UChallenge.MockDB.FeiraLivreAggregates
 {
-    public sealed record FeiraLivre :
-        Domain.FeiraLivreAggregates.FeiraLivre
+    public sealed class FeiraLivreFactory :
+        IFeiraLivreFactory
     {
-        public FeiraLivre(
+        public Domain.FeiraLivreAggregates.FeiraLivre Create(
             long id,
             string nomeFeira,
             string registroFeira,
@@ -22,7 +23,9 @@ namespace UChallenge.MSSQL.FeiraLivreAggregates
             string logradouro,
             string numero,
             string bairro,
-            string referencia) : base(
+            string referencia)
+        {
+            return new FeiraLivre(
                 id,
                 nomeFeira,
                 registroFeira,
@@ -39,8 +42,7 @@ namespace UChallenge.MSSQL.FeiraLivreAggregates
                 logradouro,
                 numero,
                 bairro,
-                referencia)
-        {
+                referencia);
         }
     }
 }

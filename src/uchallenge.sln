@@ -57,7 +57,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DDLs", "DDLs", "{0128AB63-1
 		..\scripts\DDLs\CreateTable_FeiraLivre_V1.sql = ..\scripts\DDLs\CreateTable_FeiraLivre_V1.sql
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UChallenge.MockDB", "UChallenge.MockDB\UChallenge.MockDB.csproj", "{A036E8B6-F9F0-47E9-B3F8-E2D46375188D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UChallenge.MockDB", "UChallenge.MockDB\UChallenge.MockDB.csproj", "{A036E8B6-F9F0-47E9-B3F8-E2D46375188D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UChallenge.Framework.Tests", "UChallenge.Framework.Tests\UChallenge.Framework.Tests.csproj", "{9A5F4692-9BFD-4625-9FD2-77904224AC93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +107,10 @@ Global
 		{A036E8B6-F9F0-47E9-B3F8-E2D46375188D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A036E8B6-F9F0-47E9-B3F8-E2D46375188D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A036E8B6-F9F0-47E9-B3F8-E2D46375188D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A5F4692-9BFD-4625-9FD2-77904224AC93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A5F4692-9BFD-4625-9FD2-77904224AC93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A5F4692-9BFD-4625-9FD2-77904224AC93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A5F4692-9BFD-4625-9FD2-77904224AC93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -125,6 +131,7 @@ Global
 		{FB11AC74-B0A5-487B-B11C-E96E4AD9E2C7} = {560442E9-3ED4-4308-9E1C-79E1F1444052}
 		{0128AB63-143A-4741-A2DA-10EDCF7F5E16} = {560442E9-3ED4-4308-9E1C-79E1F1444052}
 		{A036E8B6-F9F0-47E9-B3F8-E2D46375188D} = {86086B36-9488-4AC7-AF47-2219E8E023E6}
+		{9A5F4692-9BFD-4625-9FD2-77904224AC93} = {33287AB0-4073-4D2F-B5FF-3DCE85DBF733}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0E2F33B4-9AAF-4B3D-90D1-CE8E0F0146C7}
