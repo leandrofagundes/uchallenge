@@ -185,32 +185,5 @@ namespace UChallenge.Domain.Properties {
                 return ResourceManager.GetString("FeiraLivre_SetorCensitario", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &apos;{0}&apos; length is invalid. Should be between {0} and {1} characters..
-        /// </summary>
-        public static string Field_InvalidLength {
-            get {
-                return ResourceManager.GetString("Field_InvalidLength", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &apos;{0}&apos; must be a number greater than zero..
-        /// </summary>
-        public static string Field_InvalidNumber_MustBeGreatherThenZero {
-            get {
-                return ResourceManager.GetString("Field_InvalidNumber_MustBeGreatherThenZero", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &apos;{0}&apos; is Required. Please, inform a value..
-        /// </summary>
-        public static string Field_IsRequired {
-            get {
-                return ResourceManager.GetString("Field_IsRequired", resourceCulture);
-            }
-        }
     }
 }

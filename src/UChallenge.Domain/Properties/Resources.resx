@@ -159,13 +159,4 @@
   <data name="FeiraLivre_SetorCensitario" xml:space="preserve">
     <value>Setor Censitário</value>
   </data>
-  <data name="Field_InvalidLength" xml:space="preserve">
-    <value>'{0}' length is invalid. Should be between {0} and {1} characters.</value>
-  </data>
-  <data name="Field_InvalidNumber_MustBeGreatherThenZero" xml:space="preserve">
-    <value>'{0}' must be a number greater than zero.</value>
-  </data>
-  <data name="Field_IsRequired" xml:space="preserve">
-    <value>'{0}' is Required. Please, inform a value.</value>
-  </data>
 </root>
