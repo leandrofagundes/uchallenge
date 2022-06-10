@@ -170,7 +170,7 @@ namespace UChallenge.Domain.FeiraLivreAggregates
         public void SetCodigoDistrito(int codigoDistrito)
         {
             if (codigoDistrito < 0)
-                throw new DomainFieldInvalidValueException(Resources.FeiraLivre_CodigoDistrito);
+                throw new DomainFieldRequiredNumberException(Resources.FeiraLivre_CodigoDistrito);
 
             CodigoDistrito = codigoDistrito;
         }
@@ -200,7 +200,7 @@ namespace UChallenge.Domain.FeiraLivreAggregates
         public void SetSetorCensitario(long setorCensitario)
         {
             if (setorCensitario < 0)
-                throw new DomainFieldInvalidValueException(Resources.FeiraLivre_SetorCensitario);
+                throw new DomainFieldRequiredNumberException(Resources.FeiraLivre_SetorCensitario);
 
             SetorCensitario = setorCensitario;
         }
@@ -208,7 +208,7 @@ namespace UChallenge.Domain.FeiraLivreAggregates
         public void SetAreaDePonderacao(long areaDePonderacao)
         {
             if (areaDePonderacao < 0)
-                throw new DomainFieldInvalidValueException(Resources.FeiraLivre_AreaDePonderacao);
+                throw new DomainFieldRequiredNumberException(Resources.FeiraLivre_AreaDePonderacao);
 
             AreaDePonderacao = areaDePonderacao;
         }
@@ -216,7 +216,7 @@ namespace UChallenge.Domain.FeiraLivreAggregates
         public void SetCodigoSubPrefeitura(int codigoSubPrefeitura)
         {
             if (codigoSubPrefeitura < 0)
-                throw new DomainFieldInvalidValueException(Resources.FeiraLivre_CodigoSubPrefeitura);
+                throw new DomainFieldRequiredNumberException(Resources.FeiraLivre_CodigoSubPrefeitura);
 
             CodigoSubPrefeitura = codigoSubPrefeitura;
         }
