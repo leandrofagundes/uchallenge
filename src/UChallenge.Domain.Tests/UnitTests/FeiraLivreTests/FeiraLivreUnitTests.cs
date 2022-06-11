@@ -2,7 +2,6 @@
 using UChallenge.Framework.Domain.Exceptions;
 using UChallenge.Framework.Domain.ValueObjects;
 using UChallenge.Framework.Tests.Fixtures;
-using UChallenge.MockDB.FeiraLivreAggregates;
 using Xunit;
 
 namespace UChallenge.Domain.Tests.UnitTests.FeiraLivreTests
@@ -41,7 +40,7 @@ namespace UChallenge.Domain.Tests.UnitTests.FeiraLivreTests
             string referencia)
         {
             // arrange
-            var feiraLivre = new FeiraLivre(
+            var feiraLivre = Fixtures.FeiraLivreFactory.Create(
                 id,
                 nomeFeira,
                 registroFeira,
@@ -149,7 +148,7 @@ namespace UChallenge.Domain.Tests.UnitTests.FeiraLivreTests
             // arrange
 
             // assert
-            Assert.ThrowsAny<DomainException>(() => new FeiraLivre(
+            Assert.ThrowsAny<DomainException>(() => Fixtures.FeiraLivreFactory.Create(
                 id,
                 nomeFeira,
                 registroFeira,

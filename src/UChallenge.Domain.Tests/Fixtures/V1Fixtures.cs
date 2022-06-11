@@ -1,6 +1,6 @@
-﻿using UChallenge.Framework.Domain.ValueObjects;
+﻿using UChallenge.Domain.FeiraLivreAggregates;
+using UChallenge.Framework.Domain.ValueObjects;
 using UChallenge.Framework.Tests.Fixtures;
-using UChallenge.MockDB.FeiraLivreAggregates;
 
 namespace UChallenge.Domain.Tests.Fixtures
 {
@@ -8,15 +8,17 @@ namespace UChallenge.Domain.Tests.Fixtures
         BaseFixture
     {
         public readonly FeiraLivre FeiraLivreVLFORMOSA;
+        public readonly IFeiraLivreFactory FeiraLivreFactory;
 
         public V1Fixtures()
         {
+            FeiraLivreFactory = new MockDB.FeiraLivreAggregates.FeiraLivreFactory();
             FeiraLivreVLFORMOSA = BuildFeiraLivreVLFORMOSA();
         }
 
-        private static FeiraLivre BuildFeiraLivreVLFORMOSA()
+        private FeiraLivre BuildFeiraLivreVLFORMOSA()
         {
-            return new FeiraLivre(
+            return FeiraLivreFactory.Create(
                 1,
                 "VILA FORMOSA",
                 "4041-0",

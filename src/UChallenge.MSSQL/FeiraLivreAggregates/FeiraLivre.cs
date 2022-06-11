@@ -5,7 +5,7 @@ namespace UChallenge.MSSQL.FeiraLivreAggregates
     public sealed record FeiraLivre :
         Domain.FeiraLivreAggregates.FeiraLivre
     {
-        public FeiraLivre(
+        internal FeiraLivre(
             long id,
             string nomeFeira,
             string registroFeira,
