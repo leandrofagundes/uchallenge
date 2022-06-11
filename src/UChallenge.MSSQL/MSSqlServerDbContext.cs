@@ -19,6 +19,8 @@ namespace UChallenge.MSSQL
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.ApplyConfiguration(new FeiraLivreConfiguration());
+
             RemovePluralizingTableNameConvention(modelBuilder);
         }
 
