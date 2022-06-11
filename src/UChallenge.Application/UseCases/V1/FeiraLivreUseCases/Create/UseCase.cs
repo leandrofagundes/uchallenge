@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
 using UChallenge.Domain.FeiraLivreAggregates;
+using UChallenge.Domain.Properties;
+using UChallenge.Framework.Application.Exceptions;
+using UChallenge.Framework.Domain.Exceptions;
+using UChallenge.Framework.Domain.Repositories;
 
 namespace UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Create
 {
@@ -8,13 +12,19 @@ namespace UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Create
         IUseCase
     {
         private readonly IFeiraLivreFactory _feiraLivreFactory;
+        private readonly IFeiraLivreRepository _feiraLivreRepository;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IOutputPort _outputPort;
 
         public UseCase(
             IFeiraLivreFactory feiraLivreFactory,
+            IFeiraLivreRepository feiraLivreRepository,
+            IUnitOfWork unitOfWork,
             IOutputPort outputPort)
         {
             _feiraLivreFactory = feiraLivreFactory;
+            _feiraLivreRepository = feiraLivreRepository;
+            _unitOfWork = unitOfWork;
             _outputPort = outputPort;
         }
 
@@ -22,13 +32,32 @@ namespace UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Create
         {
             try
             {
+                inputData.ThrowIfInvalidData();
+
                 var feiraLivre = CreateFromInputData(inputData);
+
+                await ValidateUniqueData(feiraLivre)
+                    .ConfigureAwait(false);
+
+                await _feiraLivreRepository
+                    .AddAsync(feiraLivre)
+                    .ConfigureAwait(false);
+
+                await _unitOfWork
+                    .SaveChangesAsync()
+                    .ConfigureAwait(false);
 
                 var outputData = BuildOutputData(feiraLivre);
 
                 _outputPort.Success(outputData);
-
-                await Task.CompletedTask;
+            }
+            catch (BusinessApplicationInvalidInputDataException invalidDataEx)
+            {
+                _outputPort.InvalidInputData(invalidDataEx.Errors);
+            }
+            catch (DomainException domainEx)
+            {
+                _outputPort.InvalidEntityData(domainEx.Message);
             }
             catch (Exception ex)
             {
@@ -58,6 +87,16 @@ namespace UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Create
                 inputData.Referencia);
 
             return feiraLivre;
+        }
+
+        private async Task ValidateUniqueData(FeiraLivre feiraLivre)
+        {
+            var exists = await _feiraLivreRepository
+                .ExistsAsync(feiraLivre.Id)
+                .ConfigureAwait(false);
+
+            if (exists)
+                throw new BusinessApplicationDuplicateDataException(Resources.FeiraLivre, feiraLivre.Id);
         }
 
         private static OutputData BuildOutputData(FeiraLivre feiraLivre)

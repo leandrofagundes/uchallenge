@@ -77,7 +77,7 @@ After reading the considerations, run the scripts you need in that order.
 ## Final Thoughts
 
 The solution could look overengineering for the requirements but, I want to put a few different knowledge just to show possible implementations it could have.
-Off course, other principles and patterns could be applied, but I have a deadline for now.
+Off course, other principles, patterns, and strategies could be applied, but I will focus on what I think is more important. One example could be the mappers.
 The model was a pain because I want to keep Portuguese, but at the same time, I want to see this repository more open to other opportunities if this one doesn't work.
 A few decisions like using Exceptions in input data is probably not the better one, but I'll think later about a better approach. Probably having a TryParse solution for the value object, should resolve both problems.
 Another thing is about creating Value Objects (structs) for every single attribute of a model. I believe it can give better control over models. Right now, I'm using it only for Latitude and Longitude, but maybe I evolve it.

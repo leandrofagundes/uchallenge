@@ -117,49 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="FeiraLivre" xml:space="preserve">
-    <value>Feira Livre</value>
-  </data>
-  <data name="FeiraLivre_AreaDePonderacao" xml:space="preserve">
-    <value>Área de Ponderação</value>
-  </data>
-  <data name="FeiraLivre_Bairro" xml:space="preserve">
-    <value>Bairro</value>
-  </data>
-  <data name="FeiraLivre_CodigoDistrito" xml:space="preserve">
-    <value>Código do Distrito</value>
-  </data>
-  <data name="FeiraLivre_CodigoSubPrefeitura" xml:space="preserve">
-    <value>Código Subprefeitura</value>
-  </data>
-  <data name="FeiraLivre_Logradouro" xml:space="preserve">
-    <value>Logradouro</value>
-  </data>
-  <data name="FeiraLivre_NomeDistrito" xml:space="preserve">
-    <value>Nome do Distrito</value>
-  </data>
-  <data name="FeiraLivre_NomeFeira" xml:space="preserve">
-    <value>Nome da Feira</value>
-  </data>
-  <data name="FeiraLivre_NomeSubPrefeitura" xml:space="preserve">
-    <value>Nome da Subprefeitura</value>
-  </data>
-  <data name="FeiraLivre_Numero" xml:space="preserve">
-    <value>Número</value>
-  </data>
-  <data name="FeiraLivre_Referencia" xml:space="preserve">
-    <value>Referência</value>
-  </data>
-  <data name="FeiraLivre_RegiaoPorDivisaoEm5Areas" xml:space="preserve">
-    <value>Região por Divisão em 5 Áreas</value>
-  </data>
-  <data name="FeiraLivre_RegiaoPorDivisaoEm8Areas" xml:space="preserve">
-    <value>Região por Divisão em 8 Áreas</value>
-  </data>
-  <data name="FeiraLivre_RegistroFeira" xml:space="preserve">
-    <value>Registro da Feira</value>
-  </data>
-  <data name="FeiraLivre_SetorCensitario" xml:space="preserve">
-    <value>Setor Censitário</value>
-  </data>
 </root>

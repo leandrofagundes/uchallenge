@@ -61,6 +61,15 @@ namespace UChallenge.Domain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Feira Livre.
+        /// </summary>
+        public static string FeiraLivre {
+            get {
+                return ResourceManager.GetString("FeiraLivre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Área de Ponderação.
         /// </summary>
         public static string FeiraLivre_AreaDePonderacao {
