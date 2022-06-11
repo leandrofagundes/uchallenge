@@ -67,3 +67,15 @@ Attention4: The original DEINFO_AB_FEIRASLIVRES_2014.csv comes with an invalid d
 3) \scripts\DMLs\LoadTable_FeiraLivre_V1.sql
 
 
+## Final Thoughts
+
+The solution could look overengineering for the requirements but, I really want to put a few different knowledge just to show possible implementations it could have.
+Off course, other principles and patterns could be applied, but I have a deadline for now.
+The model was a pain because I want to keep Portuguese, but at the same time, I want to see this repository more open to other opportunities if this one doesn't work.
+I'll really prefer to work with Portuguese for this solution or have more data about the domain in English for its project. Something we don't have for challenges.
+Feel free to ask me new ideas or questions about why I used something specifically on its repository.
+
+### A few ideas
+
+- OData for updates and queries could be interesting. I'll try to implement it before the deadline.
+- .NetCore MemoryCache must be overengineering but I'll try to implement it too.
