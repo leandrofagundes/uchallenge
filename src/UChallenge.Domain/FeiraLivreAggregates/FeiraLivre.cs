@@ -15,7 +15,7 @@ namespace UChallenge.Domain.FeiraLivreAggregates
         public Latitude Latitude { get; private set; }
         public long SetorCensitario { get; private set; }
         public long AreaDePonderacao { get; private set; }
-        public long CodigoDistrito { get; private set; }
+        public int CodigoDistrito { get; private set; }
         public string NomeDistrito { get; private set; }
         public int CodigoSubPrefeitura { get; private set; }
         public string NomeSubPrefeitura { get; private set; }
