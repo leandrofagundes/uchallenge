@@ -19,4 +19,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\UChallenge.Framework.Tests\UChallenge.Framework.Tests.csproj" />
+    <ProjectReference Include="..\UChallenge.MockDB\UChallenge.MockDB.csproj" />
+  </ItemGroup>
+
 </Project>
