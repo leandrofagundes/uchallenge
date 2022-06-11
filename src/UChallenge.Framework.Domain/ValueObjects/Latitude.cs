@@ -1,4 +1,7 @@
-﻿namespace UChallenge.Framework.Domain.ValueObjects
+﻿using UChallenge.Framework.Domain.Exceptions;
+using UChallenge.Framework.Domain.Properties;
+
+namespace UChallenge.Framework.Domain.ValueObjects
 {
     public readonly struct Latitude :
          IEquatableValueObject<Latitude>
@@ -9,10 +12,13 @@
 
         public Latitude(double value)
         {
+            if (IsInvalidValue(value))
+                throw new DomainFieldInvalidNumberOutOfRangeException(Resources.Latitude, MINVALUE, MAXVALUE);
+
             _value = value;
         }
 
-        private static bool IsValidValue(double value)
+        private static bool IsInvalidValue(double value)
         {
             if (value < MINVALUE || value > MAXVALUE)
                 return true;
@@ -67,7 +73,7 @@
             if (!double.TryParse(value, out double valueAsDouble))
                 return false;
 
-            if (!IsValidValue(valueAsDouble))
+            if (!IsInvalidValue(valueAsDouble))
                 return false;
 
             latitude = new Latitude(valueAsDouble);

@@ -1,9 +1,9 @@
 ﻿namespace UChallenge.Framework.Domain.Exceptions
 {
-    public abstract class DomainFieldException :
+    public class DomainFieldException :
         DomainException
     {
-        public DomainFieldException(string message) : 
+        public DomainFieldException(string message) :
             base(message)
         {
 

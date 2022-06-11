@@ -7,9 +7,9 @@ using Xunit;
 namespace UChallenge.Domain.Tests.UnitTests.FeiraLivreTests
 {
     public sealed class FeiraLivreUnitTests :
-        BaseUnitTests<V1Fixtures>
+        BaseUnitTests<DomainFixtures>
     {
-        public FeiraLivreUnitTests(V1Fixtures fixtures) :
+        public FeiraLivreUnitTests(Fixtures.DomainFixtures fixtures) :
             base(fixtures)
         {
         }

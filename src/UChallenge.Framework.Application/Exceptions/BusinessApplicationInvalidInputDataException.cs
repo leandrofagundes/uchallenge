@@ -7,7 +7,8 @@ namespace UChallenge.Framework.Application.Exceptions
     {
         public Dictionary<string, string> Errors { get; }
 
-        public BusinessApplicationInvalidInputDataException(Dictionary<string, string> errors)
+        public BusinessApplicationInvalidInputDataException(Dictionary<string, string> errors) :
+            base("")
         {
             Errors = errors;
         }

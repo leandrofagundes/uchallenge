@@ -13,10 +13,18 @@ namespace UChallenge.Framework.Domain.ValueObjects
 
         public Longitude(double value)
         {
-            if (value < MINVALUE || value > MAXVALUE)
+            if (IsInvalidValue(value))
                 throw new DomainFieldInvalidNumberOutOfRangeException(Resources.Longitude, MINVALUE, MAXVALUE);
 
             _value = value;
+        }
+
+        private static bool IsInvalidValue(double value)
+        {
+            if (value < MINVALUE || value > MAXVALUE)
+                return true;
+            else
+                return false;
         }
 
         public override string ToString()
