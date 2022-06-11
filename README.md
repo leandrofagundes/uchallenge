@@ -55,13 +55,17 @@ So, let's begin.
 
 ### Database
 
-You will need an SQLServer Instance running on the machine. You can create a Database using your IDE if you prefer. If this is your case, create with the name UChallenge and skip step 1.
-With your preferred client, execute the scripts on the folder scripts in this order:
+You will need an SQLServer Instance running on the machine. You can create a Database using your IDE if you prefer. 
+If this is your case, create with the name UChallenge and skip step 1.
+Consider the last thoughts before running those scripts:
+ - Creating your database with your IDE, does not need to run the script CreateDatabase_UCheckChallenge_V1.sql.
+ - The connection strings by its default use a trusted connection. If you want to use a login and password for connection, configure your database correctly and change the connection string on the application (explained later).
+ - CreateTable_FeiraLivre_V1 is a DDL script to create the table used for data load. If a table with the name FeiraLivre already exists, the script will not try to recreate it. Be sure there isn't a table with its name on your database or a table with a schema that fits the same script that exists.
+ - The LoadTable_FeiraLivre_V1 must need you to edit the script before running it. This script has a reference to the DATA file to load on row 24. Change the path for the current DEINFO_AB_FEIRASLIVRES_2014.CSV file before running it. Change the path to best fit your environment.
+ 
+Attention: The original DEINFO_AB_FEIRASLIVRES_2014.csv comes with an unnormalized data problem. If you prefer to download the original file, insert a comma (,) on the last row with data, at the end of the row if it does not exist.
 
-Attention: To create the database. You can skip this step if you already have a database created. The database name should be UChallenge.
-Attention2: To create the table we will use this application, use the script in step 2.
-Attention3: The next step must need you to edit the script before running it. This script has a reference to the DATA file to load on row 24. Fill with the path for the current DEINFO_AB_FEIRASLIVRES_2014.CSV file before running it. Change the path to best fit your environment.
-Attention4: The original DEINFO_AB_FEIRASLIVRES_2014.csv comes with an invalid data problem. If you prefer to download the file, insert a comma (,) on the last row with data, at the end of the row if it does not exist.
+After reading the considerations, run the scripts you need in that order.
 1) \scripts\DDLs\CreateDatabase_UCheckChallenge_V1.sql 
 2) \scripts\DDLs\CreateTable_FeiraLivre_V1.sql
 3) \scripts\DMLs\LoadTable_FeiraLivre_V1.sql
