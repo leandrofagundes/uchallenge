@@ -4,6 +4,9 @@ This repository is a tech challenge I'm trying to present my knowledge using C#,
 ## About it
 
 My main goal is to show a little about my knowledge with this repository.
+I'm using here a few principles from many ideas, but most focused on Hexagonal Architecture based on the Clean Architecture book from Robert Martin.
+Even with not using the CQRS pattern "as is", the idea runs separating the concerns of persistence and querying data. The memory cache of asp.net core will be used for show as a possibility, but the idea behind it is show the separation of concerns.
+
 The Challenge comes to me in Portuguese, that's why the section 'Challenge' is still in Portuguese.
 
 The code and documentation will be in English to make it easier for anyone else who wants to check it here.
@@ -76,6 +79,8 @@ After reading the considerations, run the scripts you need in that order.
 The solution could look overengineering for the requirements but, I want to put a few different knowledge just to show possible implementations it could have.
 Off course, other principles and patterns could be applied, but I have a deadline for now.
 The model was a pain because I want to keep Portuguese, but at the same time, I want to see this repository more open to other opportunities if this one doesn't work.
+A few decisions like using Exceptions in input data is probably not the better one, but I'll think later about a better approach. Probably having a TryParse solution for the value object, should resolve both problems.
+Another thing is about creating Value Objects (structs) for every single attribute of a model. I believe it can give better control over models. Right now, I'm using it only for Latitude and Longitude, but maybe I evolve it.
 I'll prefer to work with Portuguese for this solution or have more data about the domain in English for its project. Something we don't have for challenges.
 Feel free to ask me new ideas or questions about why I used something specifically on its repository.
 
