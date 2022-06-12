@@ -34,22 +34,22 @@ namespace UChallenge.WebAPI.Endpoints.V1.FeirasLivre.Create
         {
             var inputData = new InputData(
                 requestDTO.Id,
-                 requestDTO.NomeFeira,
-                 requestDTO.RegistroFeira,
-                 requestDTO.Longitude,
-                 requestDTO.Latitude,
-                 requestDTO.SetorCensitario,
-                 requestDTO.AreaDePonderacao,
-                 requestDTO.CodigoDistrito,
-                 requestDTO.NomeDistrito,
-                 requestDTO.CodigoSubPrefeitura,
-                 requestDTO.NomeSubPrefeitura,
-                 requestDTO.RegiaoPorDivisaoEm5Areas,
-                 requestDTO.RegiaoPorDivisaoEm8Areas,
-                 requestDTO.Logradouro,
-                 requestDTO.Numero,
-                 requestDTO.Bairro,
-                 requestDTO.Referencia);
+                requestDTO.Nome,
+                requestDTO.Registro,
+                requestDTO.Longitude,
+                requestDTO.Latitude,
+                requestDTO.SetorCensitario,
+                requestDTO.AreaPonderacao,
+                requestDTO.CodigoDistrito,
+                requestDTO.NomeDistrito,
+                requestDTO.CodigoSubPrefeitura,
+                requestDTO.NomeSubPrefeitura,
+                requestDTO.RegiaoDivisaoEm5Areas,
+                requestDTO.RegiaoDivisaoEm8Areas,
+                requestDTO.Logradouro,
+                requestDTO.Numero,
+                requestDTO.Bairro,
+                requestDTO.Referencia);
 
             await _mediator.PublishAsync(inputData);
 

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using UChallenge.Framework.WebAPI.Extensions.IServiceCollectionExtensions;
 using UChallenge.MSSQL;
 using UChallenge.MSSQL.Extensions.IServiceCollectionExtensions;
 using UChallenge.MSSQL.Queryables.Extensions.IServiceCollectionExtensions;
@@ -22,8 +23,12 @@ namespace UChallenge.WebAPI
         public void ConfigureDevelopmentServices(IServiceCollection services)
         {
             services.AddVersionedApiExplorer();
-            services.AddControllers();
+            services.AddControllersCustomized();
+            services.AddAPIVersionCustomized();
             services.AddSwagger();
+            services.AddV1Mediators();
+            services.AddV1Presenters();
+            services.AddV1UseCases();
             services.AddMSSqlServerServices(Configuration);
             services.AddMSSqlServerQueryServices();
             services.AddMemoryCache();
@@ -52,7 +57,11 @@ namespace UChallenge.WebAPI
         public void ConfigureProductionServices(IServiceCollection services)
         {
             services.AddVersionedApiExplorer();
-            services.AddControllers();
+            services.AddControllersCustomized();
+            services.AddAPIVersionCustomized();
+            services.AddV1Mediators();
+            services.AddV1Presenters();
+            services.AddV1UseCases();
             services.AddMSSqlServerServices(Configuration);
             services.AddMSSqlServerQueryServices();
             services.AddMemoryCache();

@@ -30,13 +30,13 @@ namespace UChallenge.WebAPI.Endpoints.V1.FeirasLivre.Create
             var responseDTO = new ResponseDTO
             {
                 Id = outputData.Id,
-                NomeFeira = outputData.NomeFeira,
-                RegistroFeira = outputData.RegistroFeira,
+                Nome = outputData.Nome,
+                Registro = outputData.Registro,
                 Longitude = outputData.Longitude.ToDouble(),
                 Latitude = outputData.Latitude.ToDouble(),
                 CodigoDistrito = outputData.CodigoDistrito,
                 NomeDistrito = outputData.NomeDistrito,
-                AreaDePonderacao = outputData.AreaDePonderacao,
+                AreaPonderacao = outputData.AreaPonderacao,
                 SetorCensitario = outputData.SetorCensitario,
                 Bairro = outputData.Bairro,
                 CodigoSubPrefeitura = outputData.CodigoSubPrefeitura,
@@ -44,8 +44,8 @@ namespace UChallenge.WebAPI.Endpoints.V1.FeirasLivre.Create
                 Logradouro = outputData.Logradouro,
                 Numero = outputData.Numero,
                 Referencia = outputData.Referencia,
-                RegiaoPorDivisaoEm5Areas = outputData.RegiaoPorDivisaoEm5Areas,
-                RegiaoPorDivisaoEm8Areas = outputData.RegiaoPorDivisaoEm8Areas
+                RegiaoDivisaoEm5Areas = outputData.RegiaoDivisaoEm5Areas,
+                RegiaoDivisaoEm8Areas = outputData.RegiaoDivisaoEm8Areas
             };
 
             ViewModel = new OkObjectResult(responseDTO)
