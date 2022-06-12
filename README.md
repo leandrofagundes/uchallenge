@@ -87,5 +87,5 @@ Feel free to ask me new ideas or questions about why I used something specifical
 
 ### A few ideas
 
-- OData for updates and queries could be interesting. I'll try to implement it before the deadline.
--.NetCore MemoryCache must be overengineering but I'll try to implement it too.
+ -  OData for updates and queries could be interesting. I'll try to implement it before the deadline.
+ - .NetCore MemoryCache must be overengineering but I'll try to implement it too.

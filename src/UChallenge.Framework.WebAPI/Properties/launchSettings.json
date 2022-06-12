@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "UChallenge.Framework.WebAPI": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:60258;http://localhost:60259"
+    }
+  }
+}

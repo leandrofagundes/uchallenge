@@ -1,7 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="FluentMediator" Version="0.4.7" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.PlatformAbstractions" Version="1.1.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.3.1" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
+		<PackageReference Include="FluentMediator" Version="0.4.7" />
+	</ItemGroup>
 
 </Project>
