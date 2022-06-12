@@ -59,6 +59,10 @@ namespace UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Create
             {
                 _outputPort.InvalidEntityData(domainEx.Message);
             }
+            catch (BusinessApplicationDuplicateDataException duplicateDataEx)
+            {
+                _outputPort.DuplicatedData(duplicateDataEx.Message, duplicateDataEx.Value);
+            }
             catch (Exception ex)
             {
                 _outputPort.UnhandledException(ex);

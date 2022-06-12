@@ -11,6 +11,12 @@ namespace UChallenge.Application.Tests.UseCases.V1.FeiraLivreIntegrationTests
     {
         public OutputData OutputData { get; private set; }
 
+        public void DuplicatedData(string message, object value)
+        {
+            OutputData = null;
+            throw new BusinessApplicationDuplicateDataException(message, value);
+        }
+
         public void InvalidEntityData(string message)
         {
             OutputData = null;
@@ -30,6 +36,7 @@ namespace UChallenge.Application.Tests.UseCases.V1.FeiraLivreIntegrationTests
 
         public void UnhandledException(Exception ex)
         {
+            OutputData = null;
             throw ex;
         }
     }

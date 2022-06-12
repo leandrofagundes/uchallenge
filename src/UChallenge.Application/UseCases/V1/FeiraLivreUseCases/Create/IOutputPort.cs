@@ -6,6 +6,7 @@ namespace UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Create
         IOutputPortSuccess<OutputData>,
         IOutputPortInvalidEntityData,
         IOutputPortInvalidInputData,
+        IOutputPortDuplicatedData,
         IOutputPortUnhandledException
     {
     }

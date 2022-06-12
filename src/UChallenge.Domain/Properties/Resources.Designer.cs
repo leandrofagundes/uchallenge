@@ -106,6 +106,15 @@ namespace UChallenge.Domain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Id.
+        /// </summary>
+        public static string FeiraLivre_Id {
+            get {
+                return ResourceManager.GetString("FeiraLivre_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Logradouro.
         /// </summary>
         public static string FeiraLivre_Logradouro {

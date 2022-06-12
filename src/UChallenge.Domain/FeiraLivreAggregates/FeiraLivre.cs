@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Text.RegularExpressions;
 using UChallenge.Domain.Properties;
 using UChallenge.Framework.Domain.Exceptions;
 using UChallenge.Framework.Domain.Models;
@@ -45,6 +46,8 @@ namespace UChallenge.Domain.FeiraLivreAggregates
             string bairro,
             string referencia)
         {
+            ValidateId(id);
+
             Id = id;
             SetLongitude(longitude);
             SetLatitude(latitude);
@@ -62,6 +65,12 @@ namespace UChallenge.Domain.FeiraLivreAggregates
             SetNumero(numero);
             SetBairro(bairro);
             SetReferencia(referencia);
+        }
+
+        private void ValidateId(long id)
+        {
+            if (id <= 0)
+                throw new DomainFieldRequiredNumberException(Resources.FeiraLivre_Id);
         }
 
         public void Alterar(

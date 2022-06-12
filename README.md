@@ -81,6 +81,7 @@ Off course, other principles, patterns, and strategies could be applied, but I w
 The model was a pain because I want to keep Portuguese, but at the same time, I want to see this repository more open to other opportunities if this one doesn't work.
 A few decisions like using Exceptions in input data is probably not the better one, but I'll think later about a better approach. Probably having a TryParse solution for the value object, should resolve both problems.
 Another thing is about creating Value Objects (structs) for every single attribute of a model. I believe it can give better control over models. Right now, I'm using it only for Latitude and Longitude, but maybe I evolve it.
+The Application tests are using a MockDB with lists just to make sure the use case is working well.
 I'll prefer to work with Portuguese for this solution or have more data about the domain in English for its project. Something we don't have for challenges.
 Feel free to ask me new ideas or questions about why I used something specifically on its repository.
 

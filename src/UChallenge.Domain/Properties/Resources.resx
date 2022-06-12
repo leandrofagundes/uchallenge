@@ -132,6 +132,9 @@
   <data name="FeiraLivre_CodigoSubPrefeitura" xml:space="preserve">
     <value>Código Subprefeitura</value>
   </data>
+  <data name="FeiraLivre_Id" xml:space="preserve">
+    <value>Id</value>
+  </data>
   <data name="FeiraLivre_Logradouro" xml:space="preserve">
     <value>Logradouro</value>
   </data>
