@@ -32,6 +32,8 @@ GO
 insert into FEIRALIVRE
 SELECT 
 	Identificador,
+	NomeFeiraLivre,
+	RegistroFeiraLivre,
 	STUFF(Longitude,4,0,'.'),
 	STUFF(Latitude,4,0,'.'),
 	SetorCensitario, 
@@ -42,8 +44,6 @@ SELECT
 	NomeSubprefeitura,
 	RegiaoDivisaoEm5Areas,
 	RegiaoDivisaoEm8Areas,
-	NomeFeiraLivre,
-	RegistroFeiraLivre,
 	Logradouro,
 	CASE ISNUMERIC(Numero)
 		WHEN 1 THEN CAST(Cast(numero as numeric) AS NVARCHAR(5)) 

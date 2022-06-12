@@ -19,6 +19,16 @@ namespace UChallenge.WebAPI.Endpoints.V1.FeirasLivre.Create
 
         }
 
+        /// <summary>
+        /// Request for creating a record for Feira Livre.
+        /// 
+        /// </summary>
+        /// <param name="requestDTO">Feira Livre data to create the record</param>
+        /// <response code="201">The record was created successfully</response>
+        /// <response code="400">The record was not created because of a bad request. Check if the input data follow the definitions and try again.</response>
+        /// <response code="409">The record was not created because of conflict. Check if the id value is unique and try again.</response>
+        /// <response code="500">The server encountered an error that could not handle. Please, contact our support for more info.</response>
+        /// <returns><seealso cref="ResponseDTO">Response</seealso>Contains the created object data.</returns>
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] RequestDTO requestDTO)
         {

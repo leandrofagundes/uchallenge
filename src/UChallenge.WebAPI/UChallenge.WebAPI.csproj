@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
-		<TargetFramework>net5.0</TargetFramework>
+		<TargetFramework>net6.0</TargetFramework>
 		<DocumentationFile>UChallenge.WebAPI.xml</DocumentationFile>
 	</PropertyGroup>
 	<PropertyGroup>
@@ -18,6 +18,8 @@
 		<ProjectReference Include="..\UChallenge.Application\UChallenge.Application.csproj" />
 		<ProjectReference Include="..\UChallenge.Framework.Application\UChallenge.Framework.Application.csproj" />
 		<ProjectReference Include="..\UChallenge.Framework.WebAPI\UChallenge.Framework.WebAPI.csproj" />
+		<ProjectReference Include="..\UChallenge.MSSQL.Queryables\UChallenge.MSSQL.Queryables.csproj" />
+		<ProjectReference Include="..\UChallenge.MSSQL\UChallenge.MSSQL.csproj" />
 	</ItemGroup>
 
 </Project>

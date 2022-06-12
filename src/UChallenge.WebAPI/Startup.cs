@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
+using UChallenge.MSSQL;
+using UChallenge.MSSQL.Extensions.IServiceCollectionExtensions;
+using UChallenge.MSSQL.Queryables.Extensions.IServiceCollectionExtensions;
+using UChallenge.WebAPI.Extensions.IServiceCollectionExtensions;
 
 namespace UChallenge.WebAPI
 {
@@ -17,29 +19,50 @@ namespace UChallenge.WebAPI
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public void ConfigureDevelopmentServices(IServiceCollection services)
         {
-
+            services.AddVersionedApiExplorer();
             services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "UChallenge.WebAPI", Version = "v1" });
-            });
+            services.AddSwagger();
+            services.AddMSSqlServerServices(Configuration);
+            services.AddMSSqlServerQueryServices();
+            services.AddMemoryCache();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void ConfigureDevelopment(IApplicationBuilder app, MSSqlServerDbContext dbContext)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "UChallenge.WebAPI v1"));
-            }
+            app.UseDeveloperExceptionPage();
+            app.UseRouting();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(options => options.SwaggerEndpoint("/swagger/v1/swagger.json", "UChallenge WebAPI v1"));
 
             app.UseHttpsRedirection();
+            app.UseAuthorization();
 
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+
+            dbContext.Database.Migrate();
+        }
+
+        public void ConfigureProductionServices(IServiceCollection services)
+        {
+            services.AddVersionedApiExplorer();
+            services.AddControllers();
+            services.AddMSSqlServerServices(Configuration);
+            services.AddMSSqlServerQueryServices();
+            services.AddMemoryCache();
+        }
+
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void ConfigureProduction(IApplicationBuilder app, MSSqlServerDbContext dbContext)
+        {
             app.UseRouting();
+            app.UseHttpsRedirection();
 
             app.UseAuthorization();
 
@@ -47,6 +70,8 @@ namespace UChallenge.WebAPI
             {
                 endpoints.MapControllers();
             });
+
+            dbContext.Database.Migrate();
         }
     }
 }
