@@ -11,12 +11,12 @@ CREATE TABLE #temp_FeirasLivres
 	[NomeSubprefeitura] [nvarchar](25),
 	[RegiaoDivisaoEm5Areas] [nvarchar](6),
 	[RegiaoDivisaoEm8Areas] [nvarchar](7),
-	[NomeFeiraLivre] [nvarchar](30) ,
-	[RegistroFeiraLivre] [nvarchar](6) ,
+	[nomeLivre] [nvarchar](30) ,
+	[registroLivre] [nvarchar](6) ,
 	[Logradouro] [nvarchar](34) ,
 	[Numero] [nvarchar](15) ,
 	[Bairro] [nvarchar](20) ,
-	[PontoDeReferencia] [nvarchar](30) 
+	[PontoDeReferencia] [nvarchar](35) 
 )
 GO
 
@@ -32,8 +32,8 @@ GO
 insert into FEIRALIVRE
 SELECT 
 	Identificador,
-	NomeFeiraLivre,
-	RegistroFeiraLivre,
+	nomeLivre,
+	registroLivre,
 	STUFF(Longitude,4,0,'.'),
 	STUFF(Latitude,4,0,'.'),
 	SetorCensitario, 
