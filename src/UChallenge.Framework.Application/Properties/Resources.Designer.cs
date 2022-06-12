@@ -68,5 +68,14 @@ namespace UChallenge.Framework.Application.Properties {
                 return ResourceManager.GetString("Record_AlreadyExists", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A &apos;{0}&apos; with the key &apos;{1}&apos; was not found..
+        /// </summary>
+        internal static string Record_DoesNotExists {
+            get {
+                return ResourceManager.GetString("Record_DoesNotExists", resourceCulture);
+            }
+        }
     }
 }

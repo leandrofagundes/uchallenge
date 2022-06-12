@@ -73,7 +73,7 @@ namespace UChallenge.Domain.FeiraLivreAggregates
                 throw new DomainFieldRequiredNumberException(Resources.FeiraLivre_Id);
         }
 
-        public void Alterar(
+        public void UpdateProperties(
             string nomeFeira,
             string registroFeira,
             Longitude longitude,

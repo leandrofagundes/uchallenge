@@ -9,7 +9,7 @@ namespace UChallenge.Application.Tests.Fixtures
     public sealed class V1Fixtures :
         BaseFixture
     {
-        private static readonly MockDbContext _context = new();
+        private readonly MockDbContext _context = new();
 
         public readonly Domain.FeiraLivreAggregates.IFeiraLivreFactory FeiraLivreFactory;
         public readonly Domain.FeiraLivreAggregates.IFeiraLivreRepository FeiraLivreRepository;
