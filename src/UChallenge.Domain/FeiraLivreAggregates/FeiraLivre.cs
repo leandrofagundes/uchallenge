@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using UChallenge.Domain.Properties;
 using UChallenge.Framework.Domain.Exceptions;
 using UChallenge.Framework.Domain.Models;
@@ -67,12 +66,7 @@ namespace UChallenge.Domain.FeiraLivreAggregates
             SetReferencia(referencia);
         }
 
-        private void ValidateId(long id)
-        {
-            if (id <= 0)
-                throw new DomainFieldRequiredNumberException(Resources.FeiraLivre_Id);
-        }
-
+      
         public void UpdateProperties(
             string nomeFeira,
             string registroFeira,
@@ -107,6 +101,12 @@ namespace UChallenge.Domain.FeiraLivreAggregates
             SetNomeSubPrefeitura(nomeSubPrefeitura);
             SetRegiaoPorDivisaoEm5Areas(regiaoPorDivisaoEm5Areas);
             SetRegiaoPorDivisaoEm8Areas(regiaoPorDivisaoEm8Areas);
+        }
+
+        private static void ValidateId(long id)
+        {
+            if (id <= 0)
+                throw new DomainFieldRequiredNumberException(Resources.FeiraLivre_Id);
         }
 
         public void SetNomeFeira(string nomeFeira)

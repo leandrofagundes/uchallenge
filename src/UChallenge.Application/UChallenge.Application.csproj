@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="UseCases\V1\FeiraLivreUseCases\Delete\" />
     <Folder Include="UseCases\V1\FeiraLivreUseCases\Get\" />
   </ItemGroup>
 
