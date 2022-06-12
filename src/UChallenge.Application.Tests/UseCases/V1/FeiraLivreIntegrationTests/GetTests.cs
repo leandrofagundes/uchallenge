@@ -22,7 +22,7 @@ namespace UChallenge.Application.Tests.UseCases.V1.FeiraLivreIntegrationTests
         [InlineData("", "VILA", "", "")]
         [InlineData("", "", "leste", "")]
         [InlineData("", "", "", "vL")]
-        public async Task Get_FeiraLivreUseCase_ShouldSuccess(string nomefeira, string distrito, string regiao5, string bairro)
+        public async Task Get_FeiraLivreUseCase_ShouldSuccess(string nome, string distrito, string regiao5, string bairro)
         {
             // arrange
             var presenter = new GetPresenter();
@@ -30,7 +30,7 @@ namespace UChallenge.Application.Tests.UseCases.V1.FeiraLivreIntegrationTests
                 Fixtures.FeiraLivreQueryable,
                 presenter);
 
-            var inputData = new InputData(nomefeira, distrito, regiao5, bairro);
+            var inputData = new InputData(nome, distrito, regiao5, bairro);
 
             // act
             await useCase
@@ -50,7 +50,7 @@ namespace UChallenge.Application.Tests.UseCases.V1.FeiraLivreIntegrationTests
         [InlineData("", "valo", "", "")]
         [InlineData("", "", "oeste", "")]
         [InlineData("", "", "", "ZL")]
-        public async Task Get_FeiraLivreUseCase_ShouldReturnEmpty(string nomefeira, string distrito, string regiao5, string bairro)
+        public async Task Get_FeiraLivreUseCase_ShouldReturnEmpty(string nome, string distrito, string regiao5, string bairro)
         {
             // arrange
             var presenter = new GetPresenter();
@@ -58,7 +58,7 @@ namespace UChallenge.Application.Tests.UseCases.V1.FeiraLivreIntegrationTests
                 Fixtures.FeiraLivreQueryable,
                 presenter);
 
-            var inputData = new InputData(nomefeira, distrito, regiao5, bairro);
+            var inputData = new InputData(nome, distrito, regiao5, bairro);
 
             // act
             await useCase

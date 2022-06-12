@@ -83,6 +83,7 @@ A few decisions like using Exceptions in input data is probably not the better o
 Another thing is about creating Value Objects (structs) for every single attribute of a model. I believe it can give better control over models. Right now, I'm using it only for Latitude and Longitude, but maybe I evolve it.
 The Application tests are using a MockDB with lists just to make sure the use case is working well.
 Thinking about docker is probably the best next approach. Even in development, the Docker Compose could make the setup much faster and more stable. I can make it in the future, for sure.
+A filter was added to insert the Produces filter to every single call, applying the application/json content type. I don't like it too much, but one of the requeriments was ambiguous to me.
 I'll prefer to work with Portuguese for this solution or have more data about the domain in English for its project. Something we don't have for challenges.
 Feel free to ask me new ideas or questions about why I used something specifically on its repository.
 

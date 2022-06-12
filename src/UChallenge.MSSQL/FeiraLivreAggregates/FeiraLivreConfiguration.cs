@@ -26,11 +26,11 @@ namespace UChallenge.MSSQL.FeiraLivreAggregates
             builder.Property(p => p.Id)
                 .IsRequired();
 
-            builder.Property(p => p.NomeFeira)
+            builder.Property(p => p.Nome)
                 .HasMaxLength(30)
                 .IsRequired();
 
-            builder.Property(p => p.RegistroFeira)
+            builder.Property(p => p.Registro)
                 .HasMaxLength(6)
                 .IsRequired();
 
@@ -45,7 +45,7 @@ namespace UChallenge.MSSQL.FeiraLivreAggregates
             builder.Property(p => p.SetorCensitario)
                 .IsRequired();
 
-            builder.Property(p => p.AreaDePonderacao)
+            builder.Property(p => p.AreaPonderacao)
                 .IsRequired();
 
             builder.Property(p => p.CodigoDistrito)
@@ -62,10 +62,10 @@ namespace UChallenge.MSSQL.FeiraLivreAggregates
                 .HasMaxLength(25)
                 .IsRequired();
 
-            builder.Property(p => p.RegiaoPorDivisaoEm5Areas)
+            builder.Property(p => p.RegiaoDivisaoEm5Areas)
                 .IsRequired();
 
-            builder.Property(p => p.RegiaoPorDivisaoEm8Areas)
+            builder.Property(p => p.RegiaoDivisaoEm8Areas)
                 .HasMaxLength(6)
                 .IsRequired();
 
@@ -81,7 +81,7 @@ namespace UChallenge.MSSQL.FeiraLivreAggregates
                 .HasMaxLength(34);
 
             builder.Property(p => p.Referencia)
-                .HasMaxLength(30);
+                .HasMaxLength(35);
         }
     }
 }

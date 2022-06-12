@@ -5,20 +5,20 @@ namespace UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Get
     public sealed record InputData :
         BaseInputData
     {
-        public readonly string NomeFeira;
+        public readonly string Nome;
         public readonly string NomeDistrito;
-        public readonly string RegiaoPorDivisaoEm5Areas;
+        public readonly string RegiaoDivisaoEm5Areas;
         public readonly string Bairro;
 
         public InputData(
-            string nomeFeira,
+            string nome,
             string nomeDistrito,
-            string regiaoPorDivisaoEm5Areas,
+            string regiaoDivisaoEm5Areas,
             string bairro)
         {
-            NomeFeira = nomeFeira;
+            Nome = nome;
             NomeDistrito = nomeDistrito;
-            RegiaoPorDivisaoEm5Areas = regiaoPorDivisaoEm5Areas;
+            RegiaoDivisaoEm5Areas = regiaoDivisaoEm5Areas;
             Bairro = bairro;
         }
     }

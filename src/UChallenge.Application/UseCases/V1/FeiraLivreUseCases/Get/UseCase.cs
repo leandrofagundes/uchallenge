@@ -42,8 +42,8 @@ namespace UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Get
             {
                 Bairro = inputData.Bairro,
                 NomeDistrito = inputData.NomeDistrito,
-                NomeFeira = inputData.NomeFeira,
-                RegiaoEm5Areas = inputData.RegiaoPorDivisaoEm5Areas
+                Nome = inputData.Nome,
+                RegiaoEm5Areas = inputData.RegiaoDivisaoEm5Areas
             };
 
             var queryResult = await _feiraLivreQueryable
@@ -59,18 +59,18 @@ namespace UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Get
                 .Items
                 .Select(resultItem => new OutputDataItem(
                     resultItem.Id,
-                    resultItem.NomeFeira,
-                    resultItem.RegistroFeira,
+                    resultItem.Nome,
+                    resultItem.Registro,
                     new(resultItem.Longitude),
                     new(resultItem.Latitude),
                     resultItem.SetorCensitario,
-                    resultItem.AreaDePonderacao,
+                    resultItem.AreaPonderacao,
                     resultItem.CodigoDistrito,
                     resultItem.NomeDistrito,
                     resultItem.CodigoSubPrefeitura,
                     resultItem.NomeSubPrefeitura,
-                    resultItem.RegiaoPorDivisaoEm5Areas,
-                    resultItem.RegiaoPorDivisaoEm8Areas,
+                    resultItem.RegiaoDivisaoEm5Areas,
+                    resultItem.RegiaoDivisaoEm8Areas,
                     resultItem.Logradouro,
                     resultItem.Numero,
                     resultItem.Bairro,

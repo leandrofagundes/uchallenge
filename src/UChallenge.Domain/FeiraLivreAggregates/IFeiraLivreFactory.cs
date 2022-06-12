@@ -4,19 +4,20 @@ namespace UChallenge.Domain.FeiraLivreAggregates
 {
     public interface IFeiraLivreFactory
     {
-        FeiraLivre Create(long id,
-            string nomeFeira,
-            string registroFeira,
+        FeiraLivre Create(
+            int id,
+            string nome,
+            string registro,
             Longitude longitude,
             Latitude latitude,
-            long setorCensitario,
-            long areaDePonderacao,
+            int setorCensitario,
+            long areaPonderacao,
             int codigoDistrito,
             string nomeDistrito,
             int codigoSubPrefeitura,
             string nomeSubPrefeitura,
-            string regiaoPorDivisaoEm5Areas,
-            string regiaoPorDivisaoEm8Areas,
+            string regiaoDivisaoEm5Areas,
+            string regiaoDivisaoEm8Areas,
             string logradouro,
             string numero,
             string bairro,

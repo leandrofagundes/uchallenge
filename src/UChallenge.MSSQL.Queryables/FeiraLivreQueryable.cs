@@ -32,14 +32,14 @@ namespace UChallenge.MSSQL.Queryables
                 return await LoadFeirasLivresFromDataBase();
             });
 
-            if (!string.IsNullOrEmpty(queryFilter.NomeFeira))
-                items = items.Where(item => item.NomeFeira.Contains(queryFilter.NomeFeira));
+            if (!string.IsNullOrEmpty(queryFilter.Nome))
+                items = items.Where(item => item.Nome.Contains(queryFilter.Nome));
             if (!string.IsNullOrEmpty(queryFilter.Bairro))
                 items = items.Where(item => item.Bairro.Contains(queryFilter.Bairro));
             if (!string.IsNullOrEmpty(queryFilter.NomeDistrito))
                 items = items.Where(item => item.NomeDistrito.Contains(queryFilter.NomeDistrito));
             if (!string.IsNullOrEmpty(queryFilter.RegiaoEm5Areas))
-                items = items.Where(item => item.RegiaoPorDivisaoEm5Areas.Contains(queryFilter.RegiaoEm5Areas));
+                items = items.Where(item => item.RegiaoDivisaoEm5Areas.Contains(queryFilter.RegiaoEm5Areas));
 
             return new GetQueryResult(items.ToList());
         }
@@ -53,8 +53,8 @@ namespace UChallenge.MSSQL.Queryables
 
             var sqlQuery = "SELECT" +
                 "   Identificador, " +
-                "   NomeFeiraLivre," +
-                "   RegistroFeiraLivre," +
+                "   nomeLivre," +
+                "   registroLivre," +
                 "   Longitude," +
                 "   Latitude," +
                 "   SetorCensitario, " +
@@ -81,19 +81,19 @@ namespace UChallenge.MSSQL.Queryables
                 while (sqlDataReader.Read())
                 {
                     var item = new GetQueryResultItem(
-                        id: sqlDataReader.GetInt64(0),
-                        nomeFeira: sqlDataReader.GetString(1),
-                        registroFeira: sqlDataReader.GetString(2),
+                        id: sqlDataReader.GetInt32(0),
+                        nome: sqlDataReader.GetString(1),
+                        registro: sqlDataReader.GetString(2),
                         longitude: sqlDataReader.GetFloat(3),
                         latitude: sqlDataReader.GetFloat(4),
-                        setorCensitario: sqlDataReader.GetInt64(5),
-                        areaDePonderacao: sqlDataReader.GetInt64(6),
+                        setorCensitario: sqlDataReader.GetInt32(5),
+                        areaPonderacao: sqlDataReader.GetInt64(6),
                         codigoDistrito: sqlDataReader.GetInt32(7),
                         nomeDistrito: sqlDataReader.GetString(8),
                         codigoSubPrefeitura: sqlDataReader.GetInt32(9),
                         nomeSubPrefeitura: sqlDataReader.GetString(10),
-                        regiaoPorDivisaoEm5Areas: sqlDataReader.GetString(11),
-                        regiaoPorDivisaoEm8Areas: sqlDataReader.GetString(12),
+                        regiaoDivisaoEm5Areas: sqlDataReader.GetString(11),
+                        regiaoDivisaoEm8Areas: sqlDataReader.GetString(12),
                         logradouro: sqlDataReader.GetString(13),
                         numero: sqlDataReader.GetString(14),
                         bairro: sqlDataReader.GetString(15),

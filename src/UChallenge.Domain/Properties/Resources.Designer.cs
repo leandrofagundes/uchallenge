@@ -72,9 +72,9 @@ namespace UChallenge.Domain.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Área de Ponderação.
         /// </summary>
-        public static string FeiraLivre_AreaDePonderacao {
+        public static string FeiraLivre_AreaPonderacao {
             get {
-                return ResourceManager.GetString("FeiraLivre_AreaDePonderacao", resourceCulture);
+                return ResourceManager.GetString("FeiraLivre_AreaPonderacao", resourceCulture);
             }
         }
         
@@ -124,20 +124,20 @@ namespace UChallenge.Domain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nome da Feira.
+        /// </summary>
+        public static string FeiraLivre_nome {
+            get {
+                return ResourceManager.GetString("FeiraLivre_nome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nome do Distrito.
         /// </summary>
         public static string FeiraLivre_NomeDistrito {
             get {
                 return ResourceManager.GetString("FeiraLivre_NomeDistrito", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Nome da Feira.
-        /// </summary>
-        public static string FeiraLivre_NomeFeira {
-            get {
-                return ResourceManager.GetString("FeiraLivre_NomeFeira", resourceCulture);
             }
         }
         
@@ -171,27 +171,27 @@ namespace UChallenge.Domain.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Região por Divisão em 5 Áreas.
         /// </summary>
-        public static string FeiraLivre_RegiaoPorDivisaoEm5Areas {
+        public static string FeiraLivre_RegiaoDivisaoEm5Areas {
             get {
-                return ResourceManager.GetString("FeiraLivre_RegiaoPorDivisaoEm5Areas", resourceCulture);
+                return ResourceManager.GetString("FeiraLivre_RegiaoDivisaoEm5Areas", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Região por Divisão em 8 Áreas.
         /// </summary>
-        public static string FeiraLivre_RegiaoPorDivisaoEm8Areas {
+        public static string FeiraLivre_RegiaoDivisaoEm8Areas {
             get {
-                return ResourceManager.GetString("FeiraLivre_RegiaoPorDivisaoEm8Areas", resourceCulture);
+                return ResourceManager.GetString("FeiraLivre_RegiaoDivisaoEm8Areas", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Registro da Feira.
         /// </summary>
-        public static string FeiraLivre_RegistroFeira {
+        public static string FeiraLivre_registro {
             get {
-                return ResourceManager.GetString("FeiraLivre_RegistroFeira", resourceCulture);
+                return ResourceManager.GetString("FeiraLivre_registro", resourceCulture);
             }
         }
         
