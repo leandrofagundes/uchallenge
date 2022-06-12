@@ -1,4 +1,5 @@
-﻿using UChallenge.Framework.Application.Extensions;
+﻿using UChallenge.Domain.FeiraLivreAggregates;
+using UChallenge.Framework.Application.Extensions;
 using UChallenge.Framework.Domain.Repositories;
 using UChallenge.Framework.Tests.Fixtures;
 using UChallenge.MockDB;
@@ -11,8 +12,8 @@ namespace UChallenge.Application.Tests.Fixtures
     {
         private readonly MockDbContext _context = new();
 
-        public readonly Domain.FeiraLivreAggregates.IFeiraLivreFactory FeiraLivreFactory;
-        public readonly Domain.FeiraLivreAggregates.IFeiraLivreRepository FeiraLivreRepository;
+        public readonly IFeiraLivreFactory FeiraLivreFactory;
+        public readonly IFeiraLivreRepository FeiraLivreRepository;
         public readonly IUnitOfWork UnitOfWork;
 
         public V1Fixtures()
