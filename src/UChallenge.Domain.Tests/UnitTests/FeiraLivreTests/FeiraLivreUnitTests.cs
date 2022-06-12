@@ -7,9 +7,9 @@ using Xunit;
 namespace UChallenge.Domain.Tests.UnitTests.FeiraLivreTests
 {
     public sealed class FeiraLivreUnitTests :
-        BaseUnitTests<V1Fixtures>
+        BaseUnitTests<DomainFixtures>
     {
-        public FeiraLivreUnitTests(V1Fixtures fixtures) :
+        public FeiraLivreUnitTests(Fixtures.DomainFixtures fixtures) :
             base(fixtures)
         {
         }
@@ -88,7 +88,7 @@ namespace UChallenge.Domain.Tests.UnitTests.FeiraLivreTests
             string referencia)
         {
             // arrange
-            Fixtures.FeiraLivreVLFORMOSA.Alterar(
+            Fixtures.FeiraLivreVLFORMOSA.UpdateProperties(
                 nomeFeira,
                 registroFeira,
                 new Longitude(longitude),
@@ -111,6 +111,7 @@ namespace UChallenge.Domain.Tests.UnitTests.FeiraLivreTests
         }
 
         [Theory]
+        [InlineData(0, "Nome", "R1234", -25.234, -25.543, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "Rua logradouro", "1", "bairro", "referencia")]
         [InlineData(1, "", "R1234", -25.234, -25.543, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "Rua logradouro", "1", "bairro", "referencia")]
         [InlineData(1, "Nome", "", -25.234, -25.543, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "Rua logradouro", "1", "bairro", "referencia")]
         [InlineData(1, "Nome", "Registro", -91, -25.543, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "Rua logradouro", "1", "bairro", "referencia")]
@@ -205,7 +206,7 @@ namespace UChallenge.Domain.Tests.UnitTests.FeiraLivreTests
             // arrange
 
             // assert
-            Assert.ThrowsAny<DomainException>(() => Fixtures.FeiraLivreVLFORMOSA.Alterar(
+            Assert.ThrowsAny<DomainException>(() => Fixtures.FeiraLivreVLFORMOSA.UpdateProperties(
                 nomeFeira,
                 registroFeira,
                 new Longitude(longitude),

@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="FeiraLivre" xml:space="preserve">
+    <value>Feira Livre</value>
+  </data>
   <data name="FeiraLivre_AreaDePonderacao" xml:space="preserve">
     <value>Área de Ponderação</value>
   </data>
@@ -128,6 +131,9 @@
   </data>
   <data name="FeiraLivre_CodigoSubPrefeitura" xml:space="preserve">
     <value>Código Subprefeitura</value>
+  </data>
+  <data name="FeiraLivre_Id" xml:space="preserve">
+    <value>Id</value>
   </data>
   <data name="FeiraLivre_Logradouro" xml:space="preserve">
     <value>Logradouro</value>

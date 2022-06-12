@@ -4,13 +4,13 @@ using UChallenge.Framework.Tests.Fixtures;
 
 namespace UChallenge.Domain.Tests.Fixtures
 {
-    public sealed class V1Fixtures :
+    public sealed class DomainFixtures :
         BaseFixture
     {
         public readonly FeiraLivre FeiraLivreVLFORMOSA;
         public readonly IFeiraLivreFactory FeiraLivreFactory;
 
-        public V1Fixtures()
+        public DomainFixtures()
         {
             FeiraLivreFactory = new MockDB.FeiraLivreAggregates.FeiraLivreFactory();
             FeiraLivreVLFORMOSA = BuildFeiraLivreVLFORMOSA();

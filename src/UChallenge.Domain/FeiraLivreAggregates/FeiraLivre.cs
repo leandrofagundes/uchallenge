@@ -15,7 +15,7 @@ namespace UChallenge.Domain.FeiraLivreAggregates
         public Latitude Latitude { get; private set; }
         public long SetorCensitario { get; private set; }
         public long AreaDePonderacao { get; private set; }
-        public long CodigoDistrito { get; private set; }
+        public int CodigoDistrito { get; private set; }
         public string NomeDistrito { get; private set; }
         public int CodigoSubPrefeitura { get; private set; }
         public string NomeSubPrefeitura { get; private set; }
@@ -45,6 +45,8 @@ namespace UChallenge.Domain.FeiraLivreAggregates
             string bairro,
             string referencia)
         {
+            ValidateId(id);
+
             Id = id;
             SetLongitude(longitude);
             SetLatitude(latitude);
@@ -64,7 +66,8 @@ namespace UChallenge.Domain.FeiraLivreAggregates
             SetReferencia(referencia);
         }
 
-        public void Alterar(
+      
+        public void UpdateProperties(
             string nomeFeira,
             string registroFeira,
             Longitude longitude,
@@ -98,6 +101,12 @@ namespace UChallenge.Domain.FeiraLivreAggregates
             SetNomeSubPrefeitura(nomeSubPrefeitura);
             SetRegiaoPorDivisaoEm5Areas(regiaoPorDivisaoEm5Areas);
             SetRegiaoPorDivisaoEm8Areas(regiaoPorDivisaoEm8Areas);
+        }
+
+        private static void ValidateId(long id)
+        {
+            if (id <= 0)
+                throw new DomainFieldRequiredNumberException(Resources.FeiraLivre_Id);
         }
 
         public void SetNomeFeira(string nomeFeira)

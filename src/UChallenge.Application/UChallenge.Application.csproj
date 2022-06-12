@@ -4,4 +4,29 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="UseCases\V1\FeiraLivreUseCases\Get\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UChallenge.Domain\UChallenge.Domain.csproj" />
+    <ProjectReference Include="..\UChallenge.Framework.Application\UChallenge.Framework.Application.csproj" />
+    <ProjectReference Include="..\UChallenge.Framework.Domain\UChallenge.Framework.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>

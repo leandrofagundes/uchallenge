@@ -3,6 +3,8 @@ GO
 if not exists (select * from sys.tables where [name] = 'FeiraLivre')
 	CREATE TABLE [dbo].[FeiraLivre](
 		[Identificador] [int] NOT NULL,
+		[NomeFeiraLivre] [nvarchar](30) NOT NULL,
+		[RegistroFeiraLivre] [nvarchar](6) NOT NULL,
 		[Longitude] [float] NOT NULL,
 		[Latitude] [float] NOT NULL,
 		[SetorCensitario] [int] NOT NULL,
@@ -13,8 +15,6 @@ if not exists (select * from sys.tables where [name] = 'FeiraLivre')
 		[NomeSubprefeitura] [nvarchar](25) NOT NULL,
 		[RegiaoDivisaoEm5Areas] [nvarchar](6) NOT NULL,
 		[RegiaoDivisaoEm8Areas] [nvarchar](7) NOT NULL,
-		[NomeFeiraLivre] [nvarchar](30) NOT NULL,
-		[RegistroFeiraLivre] [nvarchar](6) NOT NULL,
 		[Logradouro] [nvarchar](34) NOT NULL,
 		[Numero] [nvarchar](5) NOT NULL,
 		[Bairro] [nvarchar](20) NULL,

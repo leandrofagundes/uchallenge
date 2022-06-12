@@ -61,6 +61,15 @@ namespace UChallenge.Domain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Feira Livre.
+        /// </summary>
+        public static string FeiraLivre {
+            get {
+                return ResourceManager.GetString("FeiraLivre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Área de Ponderação.
         /// </summary>
         public static string FeiraLivre_AreaDePonderacao {
@@ -93,6 +102,15 @@ namespace UChallenge.Domain.Properties {
         public static string FeiraLivre_CodigoSubPrefeitura {
             get {
                 return ResourceManager.GetString("FeiraLivre_CodigoSubPrefeitura", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Id.
+        /// </summary>
+        public static string FeiraLivre_Id {
+            get {
+                return ResourceManager.GetString("FeiraLivre_Id", resourceCulture);
             }
         }
         
