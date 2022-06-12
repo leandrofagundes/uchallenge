@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
+using UChallenge.Domain.FeiraLivreAggregates.Queryables;
 
 namespace UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Get
 {
@@ -21,10 +23,10 @@ namespace UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Get
         {
             try
             {
-                var queryData = await GetData(inputData)
+                var queryResult = await GetData(inputData)
                     .ConfigureAwait(false);
 
-                var outputData = BuildOutputData(queryData);
+                var outputData = BuildOutputData(queryResult);
 
                 _outputPort.Success(outputData);
             }
@@ -34,37 +36,47 @@ namespace UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Get
             }
         }
 
-        private async Task<object> GetData(InputData inputData)
+        private async Task<GetQueryResult> GetData(InputData inputData)
         {
+            var queryFilter = new GetQueryFilter
+            {
+                Bairro = inputData.Bairro,
+                NomeDistrito = inputData.NomeDistrito,
+                NomeFeira = inputData.NomeFeira,
+                RegiaoEm5Areas = inputData.RegiaoPorDivisaoEm5Areas
+            };
+
             var queryResult = await _feiraLivreQueryable
-                .Get(inputData)
+                .Get(queryFilter)
                 .ConfigureAwait(false);
 
             return queryResult;
         }
 
-        private static OutputData BuildOutputData(object feiraLivre)
+        private static OutputData BuildOutputData(GetQueryResult queryResult)
         {
-            var outputDataItem = new OutputDataItem(
-                feiraLivre.Id,
-                feiraLivre.NomeFeira,
-                feiraLivre.RegistroFeira,
-                feiraLivre.Longitude,
-                feiraLivre.Latitude,
-                feiraLivre.SetorCensitario,
-                feiraLivre.AreaDePonderacao,
-                feiraLivre.CodigoDistrito,
-                feiraLivre.NomeDistrito,
-                feiraLivre.CodigoSubPrefeitura,
-                feiraLivre.NomeSubPrefeitura,
-                feiraLivre.RegiaoPorDivisaoEm5Areas,
-                feiraLivre.RegiaoPorDivisaoEm8Areas,
-                feiraLivre.Logradouro,
-                feiraLivre.Numero,
-                feiraLivre.Bairro,
-                feiraLivre.Referencia);
+            var outputDataItem = queryResult
+                .Items
+                .Select(resultItem => new OutputDataItem(
+                    resultItem.Id,
+                    resultItem.NomeFeira,
+                    resultItem.RegistroFeira,
+                    new(resultItem.Longitude),
+                    new(resultItem.Latitude),
+                    resultItem.SetorCensitario,
+                    resultItem.AreaDePonderacao,
+                    resultItem.CodigoDistrito,
+                    resultItem.NomeDistrito,
+                    resultItem.CodigoSubPrefeitura,
+                    resultItem.NomeSubPrefeitura,
+                    resultItem.RegiaoPorDivisaoEm5Areas,
+                    resultItem.RegiaoPorDivisaoEm8Areas,
+                    resultItem.Logradouro,
+                    resultItem.Numero,
+                    resultItem.Bairro,
+                    resultItem.Referencia));
 
-            var outputData = new OutputData(null);
+            var outputData = new OutputData(outputDataItem);
             return outputData;
         }
     }
