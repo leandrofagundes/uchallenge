@@ -2,7 +2,7 @@
 
 namespace UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Delete
 {
-    internal interface IUseCase :
+    public interface IUseCase :
         IUseCase<InputData>
     {
     }

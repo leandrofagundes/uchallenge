@@ -13,6 +13,7 @@ namespace UChallenge.WebAPI.Extensions.IServiceCollectionExtensions
         {
             services.AddScoped<Application.UseCases.V1.FeiraLivreUseCases.Create.IUseCase, Application.UseCases.V1.FeiraLivreUseCases.Create.UseCase>();
             services.AddScoped<Application.UseCases.V1.FeiraLivreUseCases.Update.IUseCase, Application.UseCases.V1.FeiraLivreUseCases.Update.UseCase>();
+            services.AddScoped<Application.UseCases.V1.FeiraLivreUseCases.Delete.IUseCase, Application.UseCases.V1.FeiraLivreUseCases.Delete.UseCase>();
         }
     }
 }

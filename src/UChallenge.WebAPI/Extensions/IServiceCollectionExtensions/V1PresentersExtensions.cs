@@ -16,6 +16,9 @@ namespace UChallenge.WebAPI.Extensions.IServiceCollectionExtensions
 
             services.AddScoped<Endpoints.V1.FeirasLivre.Update.Presenter, Endpoints.V1.FeirasLivre.Update.Presenter>();
             services.AddScoped<Application.UseCases.V1.FeiraLivreUseCases.Update.IOutputPort>(x => x.GetRequiredService<Endpoints.V1.FeirasLivre.Update.Presenter>());
+
+            services.AddScoped<Endpoints.V1.FeirasLivre.Delete.Presenter, Endpoints.V1.FeirasLivre.Delete.Presenter>();
+            services.AddScoped<Application.UseCases.V1.FeiraLivreUseCases.Delete.IOutputPort>(x => x.GetRequiredService<Endpoints.V1.FeirasLivre.Delete.Presenter>());
         }
     }
 }

@@ -50,7 +50,7 @@ namespace UChallenge.WebAPI.Endpoints.V1.FeirasLivre.Create
 
             ViewModel = new OkObjectResult(responseDTO)
             {
-                StatusCode = StatusCodes.Status200OK
+                StatusCode = StatusCodes.Status201Created
             };
         }
     }
