@@ -109,41 +109,41 @@ namespace UChallenge.Domain.FeiraLivreAggregates
                 throw new DomainFieldRequiredNumberException(Resources.FeiraLivre_Id);
         }
 
-        public void Setnome(string nome)
+        private void Setnome(string nome)
         {
             var nomeLength = nome.Trim().Length;
 
             if (string.IsNullOrWhiteSpace(nome))
                 throw new DomainFieldRequiredException(Resources.FeiraLivre_nome);
-            else if (nomeLength < 1 && nomeLength > 30)
+            else if (nomeLength < 1 || nomeLength > 30)
                 throw new DomainFieldInvalidLengthException(Resources.FeiraLivre_nome, 1, 30);
 
             Nome = nome;
         }
 
-        public void Setregistro(string registro)
+        private void Setregistro(string registro)
         {
             var registroLength = registro.Trim().Length;
 
             if (string.IsNullOrWhiteSpace(registro))
                 throw new DomainFieldRequiredException(Resources.FeiraLivre_registro);
-            else if (registroLength < 1 && registroLength > 6)
+            else if (registroLength < 1 || registroLength > 6)
                 throw new DomainFieldInvalidLengthException(Resources.FeiraLivre_registro, 1, 6);
 
             Registro = registro;
         }
 
-        public void SetLongitude(Longitude longitude)
+        private void SetLongitude(Longitude longitude)
         {
             Longitude = longitude;
         }
 
-        public void SetLatitude(Latitude latitude)
+        private void SetLatitude(Latitude latitude)
         {
             Latitude = latitude;
         }
 
-        public void SetSetorCensitario(int setorCensitario)
+        private void SetSetorCensitario(int setorCensitario)
         {
             if (setorCensitario <= 0)
                 throw new DomainFieldRequiredNumberException(Resources.FeiraLivre_SetorCensitario);
@@ -151,7 +151,7 @@ namespace UChallenge.Domain.FeiraLivreAggregates
             SetorCensitario = setorCensitario;
         }
 
-        public void SetAreaPonderacao(long areaPonderacao)
+        private void SetAreaPonderacao(long areaPonderacao)
         {
             if (areaPonderacao <= 0)
                 throw new DomainFieldRequiredNumberException(Resources.FeiraLivre_AreaPonderacao);
@@ -159,7 +159,7 @@ namespace UChallenge.Domain.FeiraLivreAggregates
             AreaPonderacao = areaPonderacao;
         }
 
-        public void SetCodigoDistrito(int codigoDistrito)
+        private void SetCodigoDistrito(int codigoDistrito)
         {
             if (codigoDistrito <= 0)
                 throw new DomainFieldRequiredNumberException(Resources.FeiraLivre_CodigoDistrito);
@@ -167,19 +167,19 @@ namespace UChallenge.Domain.FeiraLivreAggregates
             CodigoDistrito = codigoDistrito;
         }
 
-        public void SetNomeDistrito(string nomeDistrito)
+        private void SetNomeDistrito(string nomeDistrito)
         {
             var nomeDistritoLength = nomeDistrito.Trim().Length;
 
             if (string.IsNullOrWhiteSpace(nomeDistrito))
                 throw new DomainFieldRequiredException(Resources.FeiraLivre_NomeDistrito);
-            else if (nomeDistritoLength < 1 && nomeDistritoLength > 18)
+            else if (nomeDistritoLength < 1 || nomeDistritoLength > 18)
                 throw new DomainFieldInvalidLengthException(Resources.FeiraLivre_NomeDistrito, 1, 18);
 
             NomeDistrito = nomeDistrito;
         }
 
-        public void SetCodigoSubPrefeitura(int codigoSubPrefeitura)
+        private void SetCodigoSubPrefeitura(int codigoSubPrefeitura)
         {
             if (codigoSubPrefeitura <= 0)
                 throw new DomainFieldRequiredNumberException(Resources.FeiraLivre_CodigoSubPrefeitura);
@@ -187,43 +187,43 @@ namespace UChallenge.Domain.FeiraLivreAggregates
             CodigoSubPrefeitura = codigoSubPrefeitura;
         }
 
-        public void SetNomeSubPrefeitura(string nomeSubPrefeitura)
+        private void SetNomeSubPrefeitura(string nomeSubPrefeitura)
         {
             var nomeSubPrefeituraLength = nomeSubPrefeitura.Trim().Length;
 
             if (string.IsNullOrWhiteSpace(nomeSubPrefeitura))
                 throw new DomainFieldRequiredException(Resources.FeiraLivre_NomeSubPrefeitura);
-            else if (nomeSubPrefeituraLength < 1 && nomeSubPrefeituraLength > 25)
+            else if (nomeSubPrefeituraLength < 1 || nomeSubPrefeituraLength > 25)
                 throw new DomainFieldInvalidLengthException(Resources.FeiraLivre_NomeSubPrefeitura, 1, 25);
 
             NomeSubPrefeitura = nomeSubPrefeitura;
         }
 
-        public void SetRegiaoDivisaoEm5Areas(string regiaoDivisaoEm5Areas)
+        private void SetRegiaoDivisaoEm5Areas(string regiaoDivisaoEm5Areas)
         {
             var regiaoDivisaoEm5AreasLength = regiaoDivisaoEm5Areas.Trim().Length;
 
             if (string.IsNullOrWhiteSpace(regiaoDivisaoEm5Areas))
                 throw new DomainFieldRequiredException(Resources.FeiraLivre_RegiaoDivisaoEm5Areas);
-            else if (regiaoDivisaoEm5AreasLength < 1 && regiaoDivisaoEm5AreasLength > 6)
+            else if (regiaoDivisaoEm5AreasLength < 1 || regiaoDivisaoEm5AreasLength > 6)
                 throw new DomainFieldInvalidLengthException(Resources.FeiraLivre_RegiaoDivisaoEm5Areas, 1, 6);
 
             RegiaoDivisaoEm5Areas = regiaoDivisaoEm5Areas;
         }
 
-        public void SetRegiaoDivisaoEm8Areas(string regiaoDivisaoEm8Areas)
+        private void SetRegiaoDivisaoEm8Areas(string regiaoDivisaoEm8Areas)
         {
             var regiaoDivisaoEm8AreasLength = regiaoDivisaoEm8Areas.Trim().Length;
 
             if (string.IsNullOrWhiteSpace(regiaoDivisaoEm8Areas))
                 throw new DomainFieldRequiredException(Resources.FeiraLivre_RegiaoDivisaoEm8Areas);
-            else if (regiaoDivisaoEm8AreasLength < 1 && regiaoDivisaoEm8AreasLength > 7)
+            else if (regiaoDivisaoEm8AreasLength < 1 || regiaoDivisaoEm8AreasLength > 7)
                 throw new DomainFieldInvalidLengthException(Resources.FeiraLivre_RegiaoDivisaoEm8Areas, 1, 7);
 
             RegiaoDivisaoEm8Areas = regiaoDivisaoEm8Areas;
         }
 
-        public void SetLogradouro(string logradouro)
+        private void SetLogradouro(string logradouro)
         {
             var logradouroLength = logradouro.Trim().Length;
 
@@ -235,7 +235,7 @@ namespace UChallenge.Domain.FeiraLivreAggregates
             Logradouro = logradouro;
         }
 
-        public void SetNumero(string numero)
+        private void SetNumero(string numero)
         {
             var normalizedNumero = Regex.Replace(numero, "[^0-9]", "");
             if (string.IsNullOrWhiteSpace(normalizedNumero))
@@ -248,7 +248,7 @@ namespace UChallenge.Domain.FeiraLivreAggregates
             Numero = normalizedNumero.ToUpper();
         }
 
-        public void SetBairro(string bairro)
+        private void SetBairro(string bairro)
         {
             var bairroLength = bairro.Trim().Length;
             if (bairroLength < 1 && bairroLength > 34)
@@ -257,7 +257,7 @@ namespace UChallenge.Domain.FeiraLivreAggregates
             Bairro = bairro;
         }
 
-        public void SetReferencia(string referencia)
+        private void SetReferencia(string referencia)
         {
             var referenciaLength = referencia.Trim().Length;
             if (referenciaLength > 30)
