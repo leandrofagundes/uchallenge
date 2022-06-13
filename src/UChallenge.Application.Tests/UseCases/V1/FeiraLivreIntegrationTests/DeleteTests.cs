@@ -17,7 +17,7 @@ namespace UChallenge.Application.Tests.UseCases.V1.FeiraLivreIntegrationTests
 
         [Theory]
         [InlineData(1)]
-        public async Task Delete_FeiraLivreUseCase_ShouldSuccess(long id)
+        public async Task Delete_FeiraLivreUseCase_ShouldSuccess(int id)
         {
             // arrange
             var presenter = new DeletePresenter();
@@ -41,7 +41,7 @@ namespace UChallenge.Application.Tests.UseCases.V1.FeiraLivreIntegrationTests
         [Theory]
         [InlineData(1000)]
         [InlineData(1001)]
-        public async Task Update_FeiraLivreUseCase_ShouldThrows_NotFoundException(long id)
+        public async Task Update_FeiraLivreUseCase_ShouldThrows_NotFoundException(int id)
         {
             // arrange
             var presenter = new DeletePresenter();

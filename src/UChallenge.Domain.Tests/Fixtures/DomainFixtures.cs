@@ -24,7 +24,7 @@ namespace UChallenge.Domain.Tests.Fixtures
                 "4041-0",
                 new Longitude(-46.550164),
                 new Latitude(-23.558733),
-                355030885000091,
+                298378139,
                 3550308005040,
                 87, "VILA FORMOSA",
                 26, "ARICANDUVA-FORMOSA-CARRAO",

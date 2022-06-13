@@ -18,31 +18,31 @@ namespace UChallenge.MockDB.Queryables
         {
             var items = _context.FeirasLivres.Select(item => new GetQueryResultItem(
                 item.Id,
-                item.NomeFeira,
-                item.RegistroFeira,
+                item.Nome,
+                item.Registro,
                 item.Longitude.ToDouble(),
                 item.Latitude.ToDouble(),
                 item.SetorCensitario,
-                item.AreaDePonderacao,
+                item.AreaPonderacao,
                 item.CodigoDistrito,
                 item.NomeDistrito,
                 item.CodigoSubPrefeitura,
                 item.NomeSubPrefeitura,
-                item.RegiaoPorDivisaoEm5Areas,
-                item.RegiaoPorDivisaoEm8Areas,
+                item.RegiaoDivisaoEm5Areas,
+                item.RegiaoDivisaoEm8Areas,
                 item.Logradouro,
                 item.Numero,
                 item.Bairro,
                 item.Referencia)).AsQueryable();
 
-            if (!string.IsNullOrEmpty(queryFilter.NomeFeira))
-                items = items.Where(item => item.NomeFeira.ToUpper().Contains(queryFilter.NomeFeira.ToUpper()));
+            if (!string.IsNullOrEmpty(queryFilter.Nome))
+                items = items.Where(item => item.Nome.ToUpper().Contains(queryFilter.Nome.ToUpper()));
             if (!string.IsNullOrEmpty(queryFilter.Bairro))
                 items = items.Where(item => item.Bairro.ToUpper().Contains(queryFilter.Bairro.ToUpper()));
             if (!string.IsNullOrEmpty(queryFilter.NomeDistrito))
                 items = items.Where(item => item.NomeDistrito.ToUpper().Contains(queryFilter.NomeDistrito.ToUpper()));
             if (!string.IsNullOrEmpty(queryFilter.RegiaoEm5Areas))
-                items = items.Where(item => item.RegiaoPorDivisaoEm5Areas.ToUpper().Contains(queryFilter.RegiaoEm5Areas.ToUpper()));
+                items = items.Where(item => item.RegiaoDivisaoEm5Areas.ToUpper().Contains(queryFilter.RegiaoEm5Areas.ToUpper()));
 
             var result = new GetQueryResult(items.ToList());
             return Task.FromResult(result);

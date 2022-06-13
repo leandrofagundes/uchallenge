@@ -50,7 +50,7 @@ namespace UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Delete
             }
         }
 
-        private async Task<FeiraLivre> GetValidFeiraLivre(long id)
+        private async Task<FeiraLivre> GetValidFeiraLivre(int id)
         {
             var feiraLivre = await _feiraLivreRepository
                 .FindAsync(id)

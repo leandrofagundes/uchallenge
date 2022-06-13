@@ -70,7 +70,7 @@ namespace UChallenge.Framework.Domain.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &apos;{0}&apos; length is invalid. Should be between {0} and {1} characters..
+        ///   Looks up a localized string similar to &apos;{0}&apos; length is invalid. Should be between {1} and {2} characters..
         /// </summary>
         public static string Field_InvalidLength {
             get {

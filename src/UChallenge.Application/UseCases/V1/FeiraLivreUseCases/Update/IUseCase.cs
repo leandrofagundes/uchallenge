@@ -2,7 +2,7 @@
 
 namespace UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Update
 {
-    internal interface IUseCase :
+    public interface IUseCase :
         IUseCase<InputData>
     {
     }

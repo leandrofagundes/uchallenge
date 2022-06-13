@@ -65,7 +65,7 @@ namespace UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Update
             }
         }
 
-        private async Task<FeiraLivre> GetValidFeiraLivre(long id)
+        private async Task<FeiraLivre> GetValidFeiraLivre(int id)
         {
             var feiraLivre = await _feiraLivreRepository
                 .FindAsync(id)
@@ -80,18 +80,18 @@ namespace UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Update
         private static void ChangeFeiraLivreProperties(FeiraLivre feiraLivre, InputData inputData)
         {
             feiraLivre.UpdateProperties(
-                inputData.NomeFeira,
-                inputData.RegistroFeira,
+                inputData.Nome,
+                inputData.Registro,
                 inputData.Longitude,
                 inputData.Latitude,
                 inputData.SetorCensitario,
-                inputData.AreaDePonderacao,
+                inputData.AreaPonderacao,
                 inputData.CodigoDistrito,
                 inputData.NomeDistrito,
                 inputData.CodigoSubPrefeitura,
                 inputData.NomeSubPrefeitura,
-                inputData.RegiaoPorDivisaoEm5Areas,
-                inputData.RegiaoPorDivisaoEm8Areas,
+                inputData.RegiaoDivisaoEm5Areas,
+                inputData.RegiaoDivisaoEm8Areas,
                 inputData.Logradouro,
                 inputData.Numero,
                 inputData.Bairro,
@@ -102,18 +102,18 @@ namespace UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Update
         {
             var outputData = new OutputData(
                 feiraLivre.Id,
-                feiraLivre.NomeFeira,
-                feiraLivre.RegistroFeira,
+                feiraLivre.Nome,
+                feiraLivre.Registro,
                 feiraLivre.Longitude,
                 feiraLivre.Latitude,
                 feiraLivre.SetorCensitario,
-                feiraLivre.AreaDePonderacao,
+                feiraLivre.AreaPonderacao,
                 feiraLivre.CodigoDistrito,
                 feiraLivre.NomeDistrito,
                 feiraLivre.CodigoSubPrefeitura,
                 feiraLivre.NomeSubPrefeitura,
-                feiraLivre.RegiaoPorDivisaoEm5Areas,
-                feiraLivre.RegiaoPorDivisaoEm8Areas,
+                feiraLivre.RegiaoDivisaoEm5Areas,
+                feiraLivre.RegiaoDivisaoEm8Areas,
                 feiraLivre.Logradouro,
                 feiraLivre.Numero,
                 feiraLivre.Bairro,

@@ -120,7 +120,7 @@
   <data name="FeiraLivre" xml:space="preserve">
     <value>Feira Livre</value>
   </data>
-  <data name="FeiraLivre_AreaDePonderacao" xml:space="preserve">
+  <data name="FeiraLivre_AreaPonderacao" xml:space="preserve">
     <value>Área de Ponderação</value>
   </data>
   <data name="FeiraLivre_Bairro" xml:space="preserve">
@@ -141,7 +141,7 @@
   <data name="FeiraLivre_NomeDistrito" xml:space="preserve">
     <value>Nome do Distrito</value>
   </data>
-  <data name="FeiraLivre_NomeFeira" xml:space="preserve">
+  <data name="FeiraLivre_nome" xml:space="preserve">
     <value>Nome da Feira</value>
   </data>
   <data name="FeiraLivre_NomeSubPrefeitura" xml:space="preserve">
@@ -153,13 +153,13 @@
   <data name="FeiraLivre_Referencia" xml:space="preserve">
     <value>Referência</value>
   </data>
-  <data name="FeiraLivre_RegiaoPorDivisaoEm5Areas" xml:space="preserve">
+  <data name="FeiraLivre_RegiaoDivisaoEm5Areas" xml:space="preserve">
     <value>Região por Divisão em 5 Áreas</value>
   </data>
-  <data name="FeiraLivre_RegiaoPorDivisaoEm8Areas" xml:space="preserve">
+  <data name="FeiraLivre_RegiaoDivisaoEm8Areas" xml:space="preserve">
     <value>Região por Divisão em 8 Áreas</value>
   </data>
-  <data name="FeiraLivre_RegistroFeira" xml:space="preserve">
+  <data name="FeiraLivre_registro" xml:space="preserve">
     <value>Registro da Feira</value>
   </data>
   <data name="FeiraLivre_SetorCensitario" xml:space="preserve">

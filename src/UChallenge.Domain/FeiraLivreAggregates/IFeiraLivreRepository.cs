@@ -3,7 +3,7 @@
 namespace UChallenge.Domain.FeiraLivreAggregates
 {
     public interface IFeiraLivreRepository :
-        IRepository<FeiraLivre, long>
+        IRepository<FeiraLivre, int>
     {
     }
 }

@@ -11,12 +11,12 @@ CREATE TABLE #temp_FeirasLivres
 	[NomeSubprefeitura] [nvarchar](25),
 	[RegiaoDivisaoEm5Areas] [nvarchar](6),
 	[RegiaoDivisaoEm8Areas] [nvarchar](7),
-	[NomeFeiraLivre] [nvarchar](30) ,
-	[RegistroFeiraLivre] [nvarchar](6) ,
+	[nomeLivre] [nvarchar](30) ,
+	[registroLivre] [nvarchar](6) ,
 	[Logradouro] [nvarchar](34) ,
 	[Numero] [nvarchar](15) ,
 	[Bairro] [nvarchar](20) ,
-	[PontoDeReferencia] [nvarchar](30) 
+	[PontoDeReferencia] [nvarchar](35) 
 )
 GO
 
@@ -25,13 +25,16 @@ FROM 'DEINFO_AB_FEIRASLIVRES_2014.csv'
 WITH
 (
 FORMAT = 'CSV',
-FirstRow = 2
+FirstRow = 2,
+ROWTERMINATOR = '\r\n'
 );
 GO
 
 insert into FEIRALIVRE
 SELECT 
 	Identificador,
+	nomeLivre,
+	registroLivre,
 	STUFF(Longitude,4,0,'.'),
 	STUFF(Latitude,4,0,'.'),
 	SetorCensitario, 
@@ -42,8 +45,6 @@ SELECT
 	NomeSubprefeitura,
 	RegiaoDivisaoEm5Areas,
 	RegiaoDivisaoEm8Areas,
-	NomeFeiraLivre,
-	RegistroFeiraLivre,
 	Logradouro,
 	CASE ISNUMERIC(Numero)
 		WHEN 1 THEN CAST(Cast(numero as numeric) AS NVARCHAR(5)) 

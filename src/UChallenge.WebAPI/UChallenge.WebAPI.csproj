@@ -1,11 +1,25 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<DocumentationFile>UChallenge.WebAPI.xml</DocumentationFile>
+	</PropertyGroup>
+	<PropertyGroup>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<!-- NoWarn 1591 Avoid warnings for every single method, attribute and class which does not have documentation -->
+		<NoWarn>1701;1702;1591;IDE0066</NoWarn>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\UChallenge.Application\UChallenge.Application.csproj" />
+		<ProjectReference Include="..\UChallenge.Framework.Application\UChallenge.Framework.Application.csproj" />
+		<ProjectReference Include="..\UChallenge.Framework.WebAPI\UChallenge.Framework.WebAPI.csproj" />
+		<ProjectReference Include="..\UChallenge.MSSQL.Queryables\UChallenge.MSSQL.Queryables.csproj" />
+		<ProjectReference Include="..\UChallenge.MSSQL\UChallenge.MSSQL.csproj" />
+	</ItemGroup>
 
 </Project>

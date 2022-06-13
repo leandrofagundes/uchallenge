@@ -5,9 +5,9 @@ namespace UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Delete
     public sealed record InputData :
         BaseInputData
     {
-        public readonly long Id;
+        public readonly int Id;
 
-        public InputData(long id)
+        public InputData(int id)
         {
             Id = id;
         }

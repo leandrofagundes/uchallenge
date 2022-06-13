@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using UChallenge.Domain.FeiraLivreAggregates.Queryables;
 
@@ -19,16 +20,24 @@ namespace UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Get
             _outputPort = outputPort;
         }
 
-        public async Task RequestAsync(InputData inputData)
+        public async Task RequestAsync(InputData inputData, CancellationToken token)
         {
             try
             {
+                token.ThrowIfCancellationRequested();
+
                 var queryResult = await GetData(inputData)
                     .ConfigureAwait(false);
+
+                token.ThrowIfCancellationRequested();
 
                 var outputData = BuildOutputData(queryResult);
 
                 _outputPort.Success(outputData);
+            }
+            catch (OperationCanceledException)
+            {
+                _outputPort.OperationCancelled();
             }
             catch (Exception ex)
             {
@@ -42,8 +51,8 @@ namespace UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Get
             {
                 Bairro = inputData.Bairro,
                 NomeDistrito = inputData.NomeDistrito,
-                NomeFeira = inputData.NomeFeira,
-                RegiaoEm5Areas = inputData.RegiaoPorDivisaoEm5Areas
+                Nome = inputData.Nome,
+                RegiaoEm5Areas = inputData.RegiaoDivisaoEm5Areas
             };
 
             var queryResult = await _feiraLivreQueryable
@@ -59,18 +68,18 @@ namespace UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Get
                 .Items
                 .Select(resultItem => new OutputDataItem(
                     resultItem.Id,
-                    resultItem.NomeFeira,
-                    resultItem.RegistroFeira,
+                    resultItem.Nome,
+                    resultItem.Registro,
                     new(resultItem.Longitude),
                     new(resultItem.Latitude),
                     resultItem.SetorCensitario,
-                    resultItem.AreaDePonderacao,
+                    resultItem.AreaPonderacao,
                     resultItem.CodigoDistrito,
                     resultItem.NomeDistrito,
                     resultItem.CodigoSubPrefeitura,
                     resultItem.NomeSubPrefeitura,
-                    resultItem.RegiaoPorDivisaoEm5Areas,
-                    resultItem.RegiaoPorDivisaoEm8Areas,
+                    resultItem.RegiaoDivisaoEm5Areas,
+                    resultItem.RegiaoDivisaoEm8Areas,
                     resultItem.Logradouro,
                     resultItem.Numero,
                     resultItem.Bairro,

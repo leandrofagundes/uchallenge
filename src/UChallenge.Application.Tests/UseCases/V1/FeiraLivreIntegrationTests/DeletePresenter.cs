@@ -9,10 +9,10 @@ namespace UChallenge.Application.Tests.UseCases.V1.FeiraLivreIntegrationTests
     {
         public bool IsSucceed { get; private set; }
 
-        public void NotFound(string message)
+        public void NotFound(object value)
         {
             IsSucceed = false;
-            throw new BusinessApplicationRecordNotFoundException(message, null);
+            throw new BusinessApplicationRecordNotFoundException(value);
         }
 
         public void Success()
