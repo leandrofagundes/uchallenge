@@ -33,13 +33,13 @@ namespace UChallenge.MSSQL.Queryables
             });
 
             if (!string.IsNullOrEmpty(queryFilter.Nome))
-                items = items.Where(item => item.Nome.Contains(queryFilter.Nome));
+                items = items.Where(item => item.Nome.ToUpper().Contains(queryFilter.Nome.ToUpper()));
             if (!string.IsNullOrEmpty(queryFilter.Bairro))
-                items = items.Where(item => item.Bairro.Contains(queryFilter.Bairro));
+                items = items.Where(item => item.Bairro.ToUpper().Contains(queryFilter.Bairro.ToUpper()));
             if (!string.IsNullOrEmpty(queryFilter.NomeDistrito))
-                items = items.Where(item => item.NomeDistrito.Contains(queryFilter.NomeDistrito));
+                items = items.Where(item => item.NomeDistrito.ToUpper().Contains(queryFilter.NomeDistrito.ToUpper()));
             if (!string.IsNullOrEmpty(queryFilter.RegiaoEm5Areas))
-                items = items.Where(item => item.RegiaoDivisaoEm5Areas.Contains(queryFilter.RegiaoEm5Areas));
+                items = items.Where(item => item.RegiaoDivisaoEm5Areas.ToUpper().Contains(queryFilter.RegiaoEm5Areas.ToUpper()));
 
             return new GetQueryResult(items.ToList());
         }
@@ -69,7 +69,7 @@ namespace UChallenge.MSSQL.Queryables
                 "   Numero," +
                 "   ISNULL(Bairro,'')," +
                 "   ISNULL(Referencia,'') " +
-                "FROM FEIRALIVRE " + 
+                "FROM FEIRALIVRE " +
                 "ORDER BY Id";
 
             using SqlCommand sqlCommand = sqlConnection.CreateCommand();
@@ -107,9 +107,11 @@ namespace UChallenge.MSSQL.Queryables
             return items.AsQueryable();
         }
 
-        public void Invalidate()
+        public Task InvalidateAsync()
         {
             _cache.Remove(CACHE_FEIRALIVRE_KEY);
+
+            return Task.CompletedTask;
         }
     }
 }

@@ -23,6 +23,7 @@ namespace UChallenge.Application.Tests.UseCases.V1.FeiraLivreIntegrationTests
             var presenter = new DeletePresenter();
             var useCase = new UseCase(
                 Fixtures.FeiraLivreRepository,
+                Fixtures.FeiraLivreQueryable,
                 Fixtures.UnitOfWork,
                 presenter);
 
@@ -47,6 +48,7 @@ namespace UChallenge.Application.Tests.UseCases.V1.FeiraLivreIntegrationTests
             var presenter = new DeletePresenter();
             var useCase = new UseCase(
                 Fixtures.FeiraLivreRepository,
+                Fixtures.FeiraLivreQueryable,
                 Fixtures.UnitOfWork,
                 presenter);
 

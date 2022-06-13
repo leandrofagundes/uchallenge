@@ -21,7 +21,7 @@ namespace UChallenge.WebAPI
                     config.WriteTo.File(
                         path: "Logs\\UChallengeAPI.log",
                         retainedFileCountLimit: 7,
-                        restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Information,
+                        restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Verbose,
                         rollingInterval: RollingInterval.Day);
                 });
     }

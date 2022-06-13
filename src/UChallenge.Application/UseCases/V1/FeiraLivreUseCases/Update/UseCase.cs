@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using UChallenge.Domain.FeiraLivreAggregates;
+using UChallenge.Domain.FeiraLivreAggregates.Queryables;
 using UChallenge.Domain.Properties;
 using UChallenge.Framework.Application.Exceptions;
 using UChallenge.Framework.Domain.Exceptions;
@@ -12,15 +13,18 @@ namespace UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Update
         IUseCase
     {
         private readonly IFeiraLivreRepository _feiraLivreRepository;
+        private readonly IFeiraLivreQueryable _feiraLivreQueryable;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IOutputPort _outputPort;
 
         public UseCase(
             IFeiraLivreRepository feiraLivreRepository,
+            IFeiraLivreQueryable feiraLivreQueryable,
             IUnitOfWork unitOfWork,
             IOutputPort outputPort)
         {
             _feiraLivreRepository = feiraLivreRepository;
+            _feiraLivreQueryable = feiraLivreQueryable;
             _unitOfWork = unitOfWork;
             _outputPort = outputPort;
         }
@@ -44,6 +48,10 @@ namespace UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Update
                     .ConfigureAwait(false);
 
                 var outputData = BuildOutputData(feiraLivre);
+
+                await _feiraLivreQueryable
+                    .InvalidateAsync()
+                    .ConfigureAwait(false);
 
                 _outputPort.Success(outputData);
             }

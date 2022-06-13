@@ -58,14 +58,15 @@ So, let's begin.
 
 ### Database
 
-You will need an SQLServer Instance running on the machine. You can create a Database using your IDE if you prefer. 
+You will need an MSSQLServer 2019 Instance running on the machine. You can create a Database using your IDE if you prefer. 
 If this is your case, create with the name UChallenge and skip step 1.
 Consider the last thoughts before running those scripts:
  - Creating your database with your IDE, does not need to run the script CreateDatabase_UCheckChallenge_V1.sql.
  - The connection strings by its default use a trusted connection. If you want to use a login and password for connection, configure your database correctly and change the connection string on the application (explained later).
  - CreateTable_FeiraLivre_V1 is a DDL script to create the table used for data load. If a table with the name FeiraLivre already exists, the script will not try to recreate it. Be sure there isn't a table with its name on your database or a table with a schema that fits the same script that exists.
  - The LoadTable_FeiraLivre_V1 must need you to edit the script before running it. This script has a reference to the DATA file to load on row 24. Change the path for the current DEINFO_AB_FEIRASLIVRES_2014.CSV file before running it. Change the path to best fit your environment.
- 
+ - If you are planning to use another version of MSSQL Server, the script can present errors.
+
 Attention: The original DEINFO_AB_FEIRASLIVRES_2014.csv comes with an unnormalized data problem. If you prefer to download the original file, insert a comma (,) on the last row with data, at the end of the row if it does not exist.
 
 After reading the considerations, run the scripts you need in that order.
@@ -73,6 +74,44 @@ After reading the considerations, run the scripts you need in that order.
 2) \scripts\DDLs\CreateTable_FeiraLivre_V1.sql
 3) \scripts\DMLs\LoadTable_FeiraLivre_V1.sql
 
+### Frameworks
+
+We are using the .Net Core 6.0 and you need it installed to the application runs on your machine.
+You can get it here:
+https://dotnet.microsoft.com/en-us/download/dotnet/6.0
+
+Take the SDK version if you wanna develop or the ASP.NET Core Runtime if you is just setting up a server.
+
+### Source Code
+
+The solution was developed using Visual Studio 2022, but work's with Visual Studio 2019 too. You could use VSCode if you prefer, but there is probably a chance of a few changes to make it run properly.
+You can find the solution file inside the folder \src as uchallenge.sln. Opening the solution with a Visual Studio IDE, you can Build and Run the application pretty easily, but here, I'll show you the commands needed to do it from a terminal.
+
+### Application
+
+Before we talk about the commands to run the application, lets make sure your Database is properly configured based on the appsettings of the application.
+If you are using a Database with Windows Authentication, the setup is ready for you, but, if you want to connect to database using sa database user or another one, make sure you change the connection string properly.
+You can find the connection string in the folder /src/UChallenge.WebAPI/appSettings.json as the Node ConnectionString, with attribute UChallenge. Keep the name and change the content for attende your needs:
+´´´
+"ConnectionStrings": {
+    "UChallenge": "Data Source=.;Initial Catalog=UChallenge;Integrated Security=true;Encrypt=False;"
+  }
+´´´
+
+Change the Data Source and Integrated Security based on your database setup.
+
+### Build & Run
+
+After confirming your setup, lets make it work.
+Open your terminal. It could be a Developer Command Prompt from Visual Studio, a PowerShell or a Windows Terminal.
+Navigate to the folder where you cloned the solution and goes inside the folder \src.
+Now, type the following commands.
+
+```
+dotnet restore .\uchallenge.sln
+dotnet build .\uchallenge.sln
+dotnet run --project .\UChallenge.WebAPI\
+```
 
 ## Final Thoughts
 

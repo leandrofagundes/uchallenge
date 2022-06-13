@@ -46,6 +46,7 @@ namespace UChallenge.Application.Tests.UseCases.V1.FeiraLivreIntegrationTests
             var useCase = new UseCase(
                 Fixtures.FeiraLivreFactory,
                 Fixtures.FeiraLivreRepository,
+                Fixtures.FeiraLivreQueryable,
                 Fixtures.UnitOfWork,
                 presenter);
 
@@ -109,6 +110,7 @@ namespace UChallenge.Application.Tests.UseCases.V1.FeiraLivreIntegrationTests
             var useCase = new UseCase(
                 Fixtures.FeiraLivreFactory,
                 Fixtures.FeiraLivreRepository,
+                Fixtures.FeiraLivreQueryable,
                 Fixtures.UnitOfWork,
                 presenter);
 
@@ -174,6 +176,7 @@ namespace UChallenge.Application.Tests.UseCases.V1.FeiraLivreIntegrationTests
             var useCase = new UseCase(
                 Fixtures.FeiraLivreFactory,
                 Fixtures.FeiraLivreRepository,
+                Fixtures.FeiraLivreQueryable,
                 Fixtures.UnitOfWork,
                 presenter);
 
@@ -229,6 +232,7 @@ namespace UChallenge.Application.Tests.UseCases.V1.FeiraLivreIntegrationTests
             var useCase = new UseCase(
                 Fixtures.FeiraLivreFactory,
                 Fixtures.FeiraLivreRepository,
+                Fixtures.FeiraLivreQueryable,
                 Fixtures.UnitOfWork,
                 presenter);
 

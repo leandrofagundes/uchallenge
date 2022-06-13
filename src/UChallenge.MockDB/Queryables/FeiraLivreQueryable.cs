@@ -48,9 +48,9 @@ namespace UChallenge.MockDB.Queryables
             return Task.FromResult(result);
         }
 
-        public void Invalidate()
+        public Task InvalidateAsync()
         {
-
+            return Task.CompletedTask;
         }
     }
 }
