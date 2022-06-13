@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Linq;
 using UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Get;
 using UChallenge.Framework.WebAPI.Endpoints;
@@ -7,12 +9,22 @@ using UChallenge.Framework.WebAPI.Endpoints;
 namespace UChallenge.WebAPI.Endpoints.V1.FeirasLivre.Get
 {
     public sealed class Presenter :
-        BasePresenter,
+        IPresenter,
         IOutputPort
     {
+        private readonly ILogger<Presenter> _logger;
+        public IActionResult ViewModel { get; private set; }
+
+        public Presenter(ILogger<Presenter> logger)
+        {
+            _logger = logger;
+        }
+
         public void OperationCancelled()
         {
             ViewModel = new NoContentResult();
+
+            _logger.LogInformation("Operation Cancelled:", ViewModel);
         }
 
         public void Success(OutputData outputData)
@@ -47,6 +59,15 @@ namespace UChallenge.WebAPI.Endpoints.V1.FeirasLivre.Get
             {
                 StatusCode = StatusCodes.Status200OK
             };
+
+            _logger.LogInformation("Success:", ViewModel);
+        }
+
+        public void UnhandledException(Exception ex)
+        {
+            ViewModel = new StatusCodeResult(500);
+
+            _logger.LogError(ex, "Unhandled Exception:");
         }
     }
 }

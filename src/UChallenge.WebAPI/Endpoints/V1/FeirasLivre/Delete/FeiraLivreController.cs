@@ -1,6 +1,7 @@
 ﻿using FluentMediator;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 using UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Delete;
 using UChallenge.Framework.WebAPI.Endpoints;
@@ -14,10 +15,12 @@ namespace UChallenge.WebAPI.Endpoints.V1.FeirasLivre.Delete
         BaseController<Presenter>
     {
 
-        public FeiraLivreController(IMediator mediator, Presenter presenter) :
-            base(mediator, presenter)
+        public FeiraLivreController(
+            IMediator mediator, 
+            Presenter presenter, 
+            ILogger<Presenter> logger) :
+            base(mediator, presenter, logger)
         {
-
         }
 
         /// <summary>
@@ -31,8 +34,10 @@ namespace UChallenge.WebAPI.Endpoints.V1.FeirasLivre.Delete
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Put([FromRoute] int id)
+        public async Task<IActionResult> Delete([FromRoute] int id)
         {
+            _logger.LogInformation("Request begins:", id);
+
             var inputData = new InputData(id);
 
             await _mediator.PublishAsync(inputData);

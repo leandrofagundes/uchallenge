@@ -1,7 +1,9 @@
-﻿namespace UChallenge.Framework.Domain.Queryables
+﻿using System.Threading.Tasks;
+
+namespace UChallenge.Framework.Domain.Queryables
 {
     public interface IQueryable
     {
-        void Invalidate();
+        Task InvalidateAsync();
     }
 }

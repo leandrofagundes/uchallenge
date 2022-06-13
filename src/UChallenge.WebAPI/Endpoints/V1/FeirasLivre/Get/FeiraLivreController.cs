@@ -1,6 +1,7 @@
 ﻿using FluentMediator;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System.Threading;
 using System.Threading.Tasks;
 using UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Get;
@@ -15,10 +16,12 @@ namespace UChallenge.WebAPI.Endpoints.V1.FeirasLivre.Get
         BaseController<Presenter>
     {
 
-        public FeiraLivreController(IMediator mediator, Presenter presenter) :
-            base(mediator, presenter)
+        public FeiraLivreController(
+            IMediator mediator,
+            Presenter presenter,
+            ILogger<Presenter> logger) :
+            base(mediator, presenter, logger)
         {
-
         }
 
         /// <summary>
@@ -45,6 +48,8 @@ namespace UChallenge.WebAPI.Endpoints.V1.FeirasLivre.Get
             [FromQuery] string neighborhood,
             CancellationToken cancellationToken)
         {
+            _logger.LogInformation("Request begins:", new { district, region5, name, neighborhood });
+
             var inputData = new InputData(name, district, region5, neighborhood);
 
             await _mediator.PublishAsync(inputData, cancellationToken);

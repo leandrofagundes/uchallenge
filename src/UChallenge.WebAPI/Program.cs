@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using Serilog;
 
 namespace UChallenge.WebAPI
 {
@@ -15,6 +16,13 @@ namespace UChallenge.WebAPI
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                }).UseSerilog((context, config) =>
+                {
+                    config.WriteTo.File(
+                        path: "Logs\\UChallengeAPI.log",
+                        retainedFileCountLimit: 7,
+                        restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Verbose,
+                        rollingInterval: RollingInterval.Day);
                 });
     }
 }
