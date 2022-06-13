@@ -21,15 +21,15 @@ namespace UChallenge.WebAPI.Endpoints.V1.FeirasLivre.Delete
         public void NotFound(object value)
         {
             ViewModel = new NotFoundObjectResult(value);
-            
-            _logger.LogInformation("NotFound:", ViewModel);
+
+            _logger.LogInformation("NotFound: {value}", value);
         }
 
         public void Success()
         {
             ViewModel = new NoContentResult();
 
-            _logger.LogInformation("Success:", ViewModel);
+            _logger.LogInformation("Success");
         }
 
         public void UnhandledException(Exception ex)

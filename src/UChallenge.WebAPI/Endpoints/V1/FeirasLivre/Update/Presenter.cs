@@ -23,16 +23,22 @@ namespace UChallenge.WebAPI.Endpoints.V1.FeirasLivre.Update
         public void InvalidEntityData(string message)
         {
             ViewModel = new BadRequestObjectResult(message);
+
+            _logger.LogInformation("Bad Request: {message}", message);
         }
 
         public void InvalidInputData(Dictionary<string, string> errors)
         {
             ViewModel = new BadRequestObjectResult(errors);
+
+            _logger.LogInformation("Bad Request: {errors}", string.Join(";", errors.Values));
         }
 
         public void NotFound(object value)
         {
             ViewModel = new NotFoundObjectResult(value);
+
+            _logger.LogInformation("Not found: {value}", value);
         }
 
         public void Success(OutputData outputData)
@@ -62,6 +68,8 @@ namespace UChallenge.WebAPI.Endpoints.V1.FeirasLivre.Update
             {
                 StatusCode = StatusCodes.Status200OK
             };
+
+            _logger.LogInformation("Success: {responseDTO}", responseDTO);
         }
 
         public void UnhandledException(Exception ex)
