@@ -24,21 +24,21 @@ namespace UChallenge.WebAPI.Endpoints.V1.FeirasLivre.Create
         {
             ViewModel = new ConflictObjectResult(message);
 
-            _logger.LogInformation("Conflict:", ViewModel);
+            _logger.LogInformation("Conflict: {message}. Value: {value}", message, value);
         }
 
         public void InvalidEntityData(string message)
         {
             ViewModel = new BadRequestObjectResult(message);
 
-            _logger.LogInformation("Bad Request:", ViewModel);
+            _logger.LogInformation("Bad Request: {message}", message);
         }
 
         public void InvalidInputData(Dictionary<string, string> errors)
         {
             ViewModel = new BadRequestObjectResult(errors);
 
-            _logger.LogInformation("Bad Request:", ViewModel);
+            _logger.LogInformation("Bad Request: {errors}", string.Join(";", errors.Values));
         }
 
         public void Success(OutputData outputData)
@@ -69,14 +69,14 @@ namespace UChallenge.WebAPI.Endpoints.V1.FeirasLivre.Create
                 StatusCode = StatusCodes.Status201Created
             };
 
-            _logger.LogInformation("Success:", ViewModel);
+            _logger.LogInformation("Success: {responseDTO}", responseDTO);
         }
 
         public void UnhandledException(Exception ex)
         {
             ViewModel = new StatusCodeResult(500);
 
-            _logger.LogError(ex, "Unhandled Exception:");
+            _logger.LogError(ex, "Unhandled Exception");
         }
     }
 }

@@ -92,11 +92,11 @@ You can find the solution file inside the folder \src as 'uchallenge.sln'. Openi
 Before we talk about the commands to run the application, let's make sure your Database is properly configured based on the app settings of the application.
 If you are using a Database with Windows Authentication, the setup is ready for you, but, if you want to connect to the database using a database user or another one, make sure you change the connection string properly.
 You can find the connection string in the folder /src/UChallenge.WebAPI/appSettings.json as the Node ConnectionString, with the attribute UChallenge. Keep the name and change the content for attendees' needs:
-´´´
+```
 "ConnectionStrings": {
     "UChallenge": "Data Source=.;Initial Catalog=UChallenge;Integrated Security=true;Encrypt=False;"
   }
-´´´
+```
 
 Change the Data Source and Integrated Security based on your database setup.
 
@@ -112,13 +112,18 @@ dotnet restore .\uchallenge.sln
 dotnet build .\uchallenge.sln
 dotnet run --project .\UChallenge.WebAPI\
 ```
+Your terminal will show info about the application start and status.
+If there is an error with Microsoft Database/Entity Framework, check if your connection string is right.
 
 After that, you can open any of those links on your browser to access the swagger documentation and try a few requests to the server:
 https://localhost:5001/swagger/index.html
 http://localhost:5000/swagger/index.html
 
-
 ### API
+
+All the information needed about requests, parameters, and everything else is well-formed on the swagger page.
+Please, check it if you have any questions:
+https://localhost:5001/swagger/index.html
 
 The API has 4 methods on V1. Each method for one action:
 
@@ -127,7 +132,7 @@ POST on /api/v1/FeiraLivre with Request Data Object.
 Example: https://localhost:5001//api/v1/FeiraLivre/.
 Body: The body must have the definitions for RequestDTO to create FeiraLivre.
 It should be a JSON like this one
-´´´
+```
 {
   "id": 0,
   "nome": "string",
@@ -147,14 +152,14 @@ It should be a JSON like this one
   "bairro": "string",
   "referencia": "string"
 }
-´´´
+```
 
 Update FeiraLivre:
 PUT on /api/v1/FeiraLivre/{id} where {id} should be the Id for the FeiraLivre which must be updated.
 Example: https://localhost:5001//api/v1/FeiraLivre/{1} to update the FeiraLivre record where the Id is 1.
 Body: The body must have the definitions for RequestDTO of update FeiraLivre.
 It should be a JSON like this one
-´´´
+```
 {
   "nome": "string",
   "registro": "string",
@@ -173,7 +178,7 @@ It should be a JSON like this one
   "bairro": "string",
   "referencia": "string"
 }
-´´´
+```
 There is no Id field on the updated body.
 
 Delete FeiraLivre

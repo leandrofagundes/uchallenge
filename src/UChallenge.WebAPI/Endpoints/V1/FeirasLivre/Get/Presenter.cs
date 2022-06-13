@@ -24,31 +24,33 @@ namespace UChallenge.WebAPI.Endpoints.V1.FeirasLivre.Get
         {
             ViewModel = new NoContentResult();
 
-            _logger.LogInformation("Operation Cancelled:", ViewModel);
+            _logger.LogInformation("Operation Cancelled");
         }
 
         public void Success(OutputData outputData)
         {
-            var items = outputData.Items.Select(item => new ResponseDTOItem
-            {
-                Id = item.Id,
-                Nome = item.Nome,
-                Registro = item.Registro,
-                Longitude = item.Longitude.ToDouble(),
-                Latitude = item.Latitude.ToDouble(),
-                AreaPonderacao = item.AreaPonderacao,
-                SetorCensitario = item.SetorCensitario,
-                CodigoDistrito = item.CodigoDistrito,
-                NomeDistrito = item.NomeDistrito,
-                CodigoSubPrefeitura = item.CodigoSubPrefeitura,
-                NomeSubPrefeitura = item.NomeSubPrefeitura,
-                RegiaoDivisaoEm5Areas = item.RegiaoDivisaoEm5Areas,
-                RegiaoDivisaoEm8Areas = item.RegiaoDivisaoEm8Areas,
-                Logradouro = item.Logradouro,
-                Numero = item.Numero,
-                Bairro = item.Bairro,
-                Referencia = item.Referencia
-            });
+            var items = outputData
+                .Items
+                .Select(item => new ResponseDTOItem
+                {
+                    Id = item.Id,
+                    Nome = item.Nome,
+                    Registro = item.Registro,
+                    Longitude = item.Longitude.ToDouble(),
+                    Latitude = item.Latitude.ToDouble(),
+                    AreaPonderacao = item.AreaPonderacao,
+                    SetorCensitario = item.SetorCensitario,
+                    CodigoDistrito = item.CodigoDistrito,
+                    NomeDistrito = item.NomeDistrito,
+                    CodigoSubPrefeitura = item.CodigoSubPrefeitura,
+                    NomeSubPrefeitura = item.NomeSubPrefeitura,
+                    RegiaoDivisaoEm5Areas = item.RegiaoDivisaoEm5Areas,
+                    RegiaoDivisaoEm8Areas = item.RegiaoDivisaoEm8Areas,
+                    Logradouro = item.Logradouro,
+                    Numero = item.Numero,
+                    Bairro = item.Bairro,
+                    Referencia = item.Referencia
+                });
 
             var responseDTO = new ResponseDTO
             {
@@ -60,14 +62,14 @@ namespace UChallenge.WebAPI.Endpoints.V1.FeirasLivre.Get
                 StatusCode = StatusCodes.Status200OK
             };
 
-            _logger.LogInformation("Success:", ViewModel);
+            _logger.LogInformation("Success: Returning a Total of {Count} records", responseDTO.Items.Count());
         }
 
         public void UnhandledException(Exception ex)
         {
             ViewModel = new StatusCodeResult(500);
 
-            _logger.LogError(ex, "Unhandled Exception:");
+            _logger.LogError(ex, "Unhandled Exception");
         }
     }
 }
