@@ -250,7 +250,7 @@ namespace UChallenge.Domain.FeiraLivreAggregates
 
         private void SetBairro(string bairro)
         {
-            var bairroLength = bairro.Trim().Length;
+            var bairroLength = bairro?.Trim().Length;
             if (bairroLength < 1 && bairroLength > 34)
                 throw new DomainFieldInvalidLengthException(Resources.FeiraLivre_Bairro, 1, 20);
 
@@ -259,7 +259,7 @@ namespace UChallenge.Domain.FeiraLivreAggregates
 
         private void SetReferencia(string referencia)
         {
-            var referenciaLength = referencia.Trim().Length;
+            var referenciaLength = referencia?.Trim().Length;
             if (referenciaLength > 30)
                 throw new DomainFieldInvalidLengthException(Resources.FeiraLivre_Referencia, 0, 30);
 
