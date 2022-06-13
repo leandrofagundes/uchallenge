@@ -23,6 +23,9 @@ namespace UChallenge.WebAPI
                         retainedFileCountLimit: 7,
                         restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Verbose,
                         rollingInterval: RollingInterval.Day);
+
+                    config.WriteTo.Console(
+                        restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Information);
                 });
     }
 }
