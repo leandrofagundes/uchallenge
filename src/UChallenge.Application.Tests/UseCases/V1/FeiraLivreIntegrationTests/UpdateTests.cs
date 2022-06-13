@@ -17,8 +17,8 @@ namespace UChallenge.Application.Tests.UseCases.V1.FeiraLivreIntegrationTests
         }
 
         [Theory]
-        [InlineData(1, "Nome", "Registro", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "Rua logradouro", "1", "bairro", "referencia")]
-        [InlineData(5, "Nome", "Registro", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "Rua logradouro", "1", "", "referencia")]
+        [InlineData(1, "Nome", "12345", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao", "regiao8", "Rua logradouro", "1", "bairro", "referencia")]
+        [InlineData(5, "Nome", "12345", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao", "regiao8", "Rua logradouro", "1", "", "referencia")]
         public async Task Update_FeiraLivreUseCase_ShouldSuccess(
             int id,
             string nome,

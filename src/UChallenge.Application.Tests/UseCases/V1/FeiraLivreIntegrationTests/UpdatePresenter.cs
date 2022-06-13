@@ -23,10 +23,10 @@ namespace UChallenge.Application.Tests.UseCases.V1.FeiraLivreIntegrationTests
             throw new BusinessApplicationInvalidInputDataException(errors);
         }
 
-        public void NotFound(string message)
+        public void NotFound(object value)
         {
             OutputData = null;
-            throw new BusinessApplicationRecordNotFoundException(message, null);
+            throw new BusinessApplicationRecordNotFoundException(value);
         }
 
         public void Success(OutputData outputData)

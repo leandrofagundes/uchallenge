@@ -15,11 +15,11 @@ namespace UChallenge.Domain.Tests.UnitTests.FeiraLivreTests
         }
 
         [Theory]
-        [InlineData(1, "Nome", "Registro", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "Rua logradouro", "1", "bairro", "referencia")]
-        [InlineData(1, "Nome", "Registro", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "Rua logradouro", "1", "", "referencia")]
-        [InlineData(1, "Nome", "Registro", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "Rua logradouro", "1", "bairro", "")]
-        [InlineData(1, "Nome", "Registro", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "Rua logradouro", "1", "", "")]
-        [InlineData(1, "Nome", "Registro", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "Rua logradouro", "", "bairro", "referencia")]
+        [InlineData(1, "Nome", "12345", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao", "regiao8", "Rua logradouro", "1", "bairro", "referencia")]
+        [InlineData(1, "Nome", "12345", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao", "regiao8", "Rua logradouro", "1", "", "referencia")]
+        [InlineData(1, "Nome", "12345", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao", "regiao8", "Rua logradouro", "1", "bairro", "")]
+        [InlineData(1, "Nome", "12345", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao", "regiao8", "Rua logradouro", "1", "", "")]
+        [InlineData(1, "Nome", "12345", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao", "regiao8", "Rua logradouro", "", "bairro", "referencia")]
         public void Create_FeiraLivre_ShouldSuccess(
             int id,
             string nome,
@@ -64,11 +64,11 @@ namespace UChallenge.Domain.Tests.UnitTests.FeiraLivreTests
         }
 
         [Theory]
-        [InlineData("Nome", "Registro", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "Rua logradouro", "1", "bairro", "referencia")]
-        [InlineData("Nome", "Registro", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "Rua logradouro", "1", "", "referencia")]
-        [InlineData("Nome", "Registro", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "Rua logradouro", "1", "bairro", "")]
-        [InlineData("Nome", "Registro", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "Rua logradouro", "1", "", "")]
-        [InlineData("Nome", "Registro", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "Rua logradouro", "", "bairro", "referencia")]
+        [InlineData("Nome", "1245", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao", "regiao8", "Rua logradouro", "1", "bairro", "referencia")]
+        [InlineData("Nome", "1245", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao", "regiao8", "Rua logradouro", "1", "", "referencia")]
+        [InlineData("Nome", "1245", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao", "regiao8", "Rua logradouro", "1", "bairro", "")]
+        [InlineData("Nome", "1245", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao", "regiao8", "Rua logradouro", "1", "", "")]
+        [InlineData("Nome", "1245", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao", "regiao8", "Rua logradouro", "", "bairro", "referencia")]
         public void Update_FeiraLivre_ShouldSuccess(
             string nome,
             string registro,
@@ -171,7 +171,9 @@ namespace UChallenge.Domain.Tests.UnitTests.FeiraLivreTests
 
         [Theory]
         [InlineData("", "R1234", -25.234, -25.543, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "Rua logradouro", "1", "bairro", "referencia")]
+        [InlineData("1234567890123456789012345678901", "R1234", -25.234, -25.543, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "Rua logradouro", "1", "bairro", "referencia")]
         [InlineData("Nome", "", -25.234, -25.543, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "Rua logradouro", "1", "bairro", "referencia")]
+        [InlineData("Nome", "1234567", -25.234, -25.543, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "Rua logradouro", "1", "bairro", "referencia")]
         [InlineData("Nome", "Registro", -91, -25.543, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "Rua logradouro", "1", "bairro", "referencia")]
         [InlineData("Nome", "Registro", 91, -25.543, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "Rua logradouro", "1", "bairro", "referencia")]
         [InlineData("Nome", "Registro", -25.123, 181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "Rua logradouro", "1", "bairro", "referencia")]
@@ -180,11 +182,19 @@ namespace UChallenge.Domain.Tests.UnitTests.FeiraLivreTests
         [InlineData("Nome", "Registro", -25.123, -25.181, 1, 0, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "Rua logradouro", "1", "bairro", "referencia")]
         [InlineData("Nome", "Registro", -25.123, -25.181, 1, 1, 0, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "Rua logradouro", "1", "bairro", "referencia")]
         [InlineData("Nome", "Registro", -25.123, -25.181, 1, 1, 1, "", 1, "subprefeitura", "regiao5", "regiao8", "Rua logradouro", "1", "bairro", "referencia")]
+        [InlineData("Nome", "Registro", -25.123, -25.181, 1, 1, 1, "1234567890123456789", 1, "subprefeitura", "regiao5", "regiao8", "Rua logradouro", "1", "bairro", "referencia")]
         [InlineData("Nome", "Registro", -25.123, -25.181, 1, 1, 1, "distrito", 0, "subprefeitura", "regiao5", "regiao8", "Rua logradouro", "1", "bairro", "referencia")]
         [InlineData("Nome", "Registro", -25.123, -25.181, 1, 1, 1, "distrito", 1, "", "regiao5", "regiao8", "Rua logradouro", "1", "bairro", "referencia")]
+        [InlineData("Nome", "Registro", -25.123, -25.181, 1, 1, 1, "distrito", 1, "12345678901234567890123456", "regiao5", "regiao8", "Rua logradouro", "1", "bairro", "referencia")]
         [InlineData("Nome", "Registro", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "", "regiao8", "Rua logradouro", "1", "bairro", "referencia")]
+        [InlineData("Nome", "Registro", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "1234567", "regiao8", "Rua logradouro", "1", "bairro", "referencia")]
         [InlineData("Nome", "Registro", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "", "Rua logradouro", "1", "bairro", "referencia")]
+        [InlineData("Nome", "Registro", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "12345678", "Rua logradouro", "1", "bairro", "referencia")]
         [InlineData("Nome", "Registro", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "", "1", "bairro", "referencia")]
+        [InlineData("Nome", "Registro", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "123456789012345678901234567890123456", "1", "bairro", "referencia")]
+        [InlineData("Nome", "Registro", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "Rua", "123456", "bairro", "referencia")]
+        [InlineData("Nome", "Registro", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "Rua", "1", "123456789012345678901", "referencia")]
+        [InlineData("Nome", "Registro", -25.123, -25.181, 1, 1, 1, "distrito", 1, "subprefeitura", "regiao5", "regiao8", "Rua", "1", "bairro", "1234567890123456789012345678901")]
         public void Update_FeiraLivre_InvalidData_ShouldThrowsException(
             string nome,
             string registro,
