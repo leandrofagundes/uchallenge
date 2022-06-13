@@ -2,6 +2,6 @@
 {
     public interface IOutputPortEntityNotFound
     {
-        void NotFound(string message);
+        void NotFound(object value);
     }
 }

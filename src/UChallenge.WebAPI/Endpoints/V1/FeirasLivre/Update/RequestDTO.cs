@@ -1,18 +1,13 @@
 ﻿using UChallenge.Framework.WebAPI.Endpoints;
 
-namespace UChallenge.WebAPI.Endpoints.V1.FeirasLivre.Create
+namespace UChallenge.WebAPI.Endpoints.V1.FeirasLivre.Update
 {
     /// <summary>
-    /// Response Data Transfer Object from created record of Feira Livre.
+    /// Request Data Transfer Object to create a new Feira Livre.
     /// </summary>
-    public sealed record ResponseDTO :
-        IResponseDTO
+    public sealed class RequestDTO :
+        IRequestDTO
     {
-        /// <summary>
-        /// Identification number of the establishment georeferenced by SMDU/Deinfo,SMDU/Deinfo
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Denomination of the Feira Livre attributed by the Supply Supervision. Must be between 1 and 30 characters.
         /// </summary>

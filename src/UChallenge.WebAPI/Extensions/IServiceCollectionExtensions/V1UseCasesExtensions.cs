@@ -12,6 +12,7 @@ namespace UChallenge.WebAPI.Extensions.IServiceCollectionExtensions
         private static void AddV1FeirasLivreUseCases(ref IServiceCollection services)
         {
             services.AddScoped<Application.UseCases.V1.FeiraLivreUseCases.Create.IUseCase, Application.UseCases.V1.FeiraLivreUseCases.Create.UseCase>();
+            services.AddScoped<Application.UseCases.V1.FeiraLivreUseCases.Update.IUseCase, Application.UseCases.V1.FeiraLivreUseCases.Update.UseCase>();
         }
     }
 }

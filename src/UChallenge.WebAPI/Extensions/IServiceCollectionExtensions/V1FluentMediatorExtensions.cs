@@ -22,6 +22,9 @@ namespace UChallenge.WebAPI.Extensions.IServiceCollectionExtensions
         {
             builder.On<Application.UseCases.V1.FeiraLivreUseCases.Create.InputData>().PipelineAsync()
                .Call<Application.UseCases.V1.FeiraLivreUseCases.Create.IUseCase>((handler, request) => handler.RequestAsync(request));
+
+            builder.On<Application.UseCases.V1.FeiraLivreUseCases.Update.InputData>().PipelineAsync()
+               .Call<Application.UseCases.V1.FeiraLivreUseCases.Update.IUseCase>((handler, request) => handler.RequestAsync(request));
         }
     }
 }

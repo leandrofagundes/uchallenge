@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Field_InvalidLength" xml:space="preserve">
-    <value>'{0}' length is invalid. Should be between {0} and {1} characters.</value>
+    <value>'{0}' length is invalid. Should be between {1} and {2} characters.</value>
   </data>
   <data name="Field_Invalid_Number_OutOfRange" xml:space="preserve">
     <value>'{0}' must be a number between {1} and {2}.</value>

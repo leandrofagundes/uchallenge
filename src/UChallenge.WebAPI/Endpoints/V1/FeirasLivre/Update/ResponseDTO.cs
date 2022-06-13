@@ -1,9 +1,9 @@
 ﻿using UChallenge.Framework.WebAPI.Endpoints;
 
-namespace UChallenge.WebAPI.Endpoints.V1.FeirasLivre.Create
+namespace UChallenge.WebAPI.Endpoints.V1.FeirasLivre.Update
 {
     /// <summary>
-    /// Response Data Transfer Object from created record of Feira Livre.
+    /// Response Data Transfer Object from updated record of Feira Livre.
     /// </summary>
     public sealed record ResponseDTO :
         IResponseDTO
