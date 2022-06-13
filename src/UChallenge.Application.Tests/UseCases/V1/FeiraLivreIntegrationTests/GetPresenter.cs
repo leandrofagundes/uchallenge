@@ -8,6 +8,12 @@ namespace UChallenge.Application.Tests.UseCases.V1.FeiraLivreIntegrationTests
     {
         public OutputData OutputData { get; private set; }
 
+        public void OperationCancelled()
+        {
+            OutputData = null;
+            throw new OperationCanceledException();
+        }
+
         public void Success(OutputData outputData)
         {
             OutputData = outputData;

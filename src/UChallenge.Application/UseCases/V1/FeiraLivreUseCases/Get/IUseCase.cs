@@ -2,8 +2,8 @@
 
 namespace UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Get
 {
-    internal interface IUseCase :
-        IUseCase<InputData>
+    public interface IUseCase :
+        IUseCaseCancellable<InputData>
     {
     }
 }

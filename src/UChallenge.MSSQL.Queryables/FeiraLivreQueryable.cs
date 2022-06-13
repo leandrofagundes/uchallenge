@@ -52,24 +52,25 @@ namespace UChallenge.MSSQL.Queryables
             sqlConnection.Open();
 
             var sqlQuery = "SELECT" +
-                "   Identificador, " +
-                "   nomeLivre," +
-                "   registroLivre," +
+                "   Id, " +
+                "   Nome," +
+                "   Registro," +
                 "   Longitude," +
                 "   Latitude," +
                 "   SetorCensitario, " +
                 "   AreaPonderacao," +
-                "   CodigoDistritoIBGE," +
-                "   NomeDistritoMunicipal," +
+                "   CodigoDistrito," +
+                "   NomeDistrito," +
                 "   CodigoSubprefeitura," +
                 "   NomeSubprefeitura," +
                 "   RegiaoDivisaoEm5Areas," +
                 "   RegiaoDivisaoEm8Areas," +
                 "   Logradouro," +
-                "   Numero" +
-                "   Bairro," +
-                "   PontoDeReferencia " +
-                "FROM FEIRALIVRE";
+                "   Numero," +
+                "   ISNULL(Bairro,'')," +
+                "   ISNULL(Referencia,'') " +
+                "FROM FEIRALIVRE " + 
+                "ORDER BY Id";
 
             using SqlCommand sqlCommand = sqlConnection.CreateCommand();
             sqlCommand.CommandText = sqlQuery;
@@ -84,8 +85,8 @@ namespace UChallenge.MSSQL.Queryables
                         id: sqlDataReader.GetInt32(0),
                         nome: sqlDataReader.GetString(1),
                         registro: sqlDataReader.GetString(2),
-                        longitude: sqlDataReader.GetFloat(3),
-                        latitude: sqlDataReader.GetFloat(4),
+                        longitude: sqlDataReader.GetDouble(3),
+                        latitude: sqlDataReader.GetDouble(4),
                         setorCensitario: sqlDataReader.GetInt32(5),
                         areaPonderacao: sqlDataReader.GetInt64(6),
                         codigoDistrito: sqlDataReader.GetInt32(7),

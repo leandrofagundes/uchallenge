@@ -25,7 +25,8 @@ FROM 'DEINFO_AB_FEIRASLIVRES_2014.csv'
 WITH
 (
 FORMAT = 'CSV',
-FirstRow = 2
+FirstRow = 2,
+ROWTERMINATOR = '\r\n'
 );
 GO
 

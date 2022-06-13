@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using UChallenge.Application.Tests.Fixtures;
 using UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Get;
 using UChallenge.Framework.Tests.Fixtures;
@@ -29,12 +30,12 @@ namespace UChallenge.Application.Tests.UseCases.V1.FeiraLivreIntegrationTests
             var useCase = new UseCase(
                 Fixtures.FeiraLivreQueryable,
                 presenter);
-
+            var tokenSource = new CancellationTokenSource();
             var inputData = new InputData(nome, distrito, regiao5, bairro);
 
             // act
             await useCase
-                .RequestAsync(inputData)
+                .RequestAsync(inputData, tokenSource.Token)
                 .ConfigureAwait(false);
 
             // assert
@@ -42,7 +43,6 @@ namespace UChallenge.Application.Tests.UseCases.V1.FeiraLivreIntegrationTests
             Assert.NotEmpty(presenter.OutputData.Items);
 
         }
-
 
         [Theory]
         [InlineData("VALO", "", "", "")]
@@ -57,12 +57,12 @@ namespace UChallenge.Application.Tests.UseCases.V1.FeiraLivreIntegrationTests
             var useCase = new UseCase(
                 Fixtures.FeiraLivreQueryable,
                 presenter);
-
+            var tokenSource = new CancellationTokenSource();
             var inputData = new InputData(nome, distrito, regiao5, bairro);
 
             // act
             await useCase
-                .RequestAsync(inputData)
+                .RequestAsync(inputData, tokenSource.Token)
                 .ConfigureAwait(false);
 
             // assert
