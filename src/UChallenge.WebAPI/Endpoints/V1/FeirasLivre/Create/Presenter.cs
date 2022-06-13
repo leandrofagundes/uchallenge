@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Create;
 using UChallenge.Framework.WebAPI.Endpoints;
@@ -7,22 +9,36 @@ using UChallenge.Framework.WebAPI.Endpoints;
 namespace UChallenge.WebAPI.Endpoints.V1.FeirasLivre.Create
 {
     public sealed class Presenter :
-        BasePresenter,
+        IPresenter,
         IOutputPort
     {
+        private readonly ILogger<Presenter> _logger;
+        public IActionResult ViewModel { get; private set; }
+
+        public Presenter(ILogger<Presenter> logger)
+        {
+            _logger = logger;
+        }
+
         public void DuplicatedData(string message, object value)
         {
             ViewModel = new ConflictObjectResult(message);
+
+            _logger.LogInformation("Conflict:", ViewModel);
         }
 
         public void InvalidEntityData(string message)
         {
             ViewModel = new BadRequestObjectResult(message);
+
+            _logger.LogInformation("Bad Request:", ViewModel);
         }
 
         public void InvalidInputData(Dictionary<string, string> errors)
         {
             ViewModel = new BadRequestObjectResult(errors);
+
+            _logger.LogInformation("Bad Request:", ViewModel);
         }
 
         public void Success(OutputData outputData)
@@ -52,6 +68,15 @@ namespace UChallenge.WebAPI.Endpoints.V1.FeirasLivre.Create
             {
                 StatusCode = StatusCodes.Status201Created
             };
+
+            _logger.LogInformation("Success:", ViewModel);
+        }
+
+        public void UnhandledException(Exception ex)
+        {
+            ViewModel = new StatusCodeResult(500);
+
+            _logger.LogError(ex, "Unhandled Exception:");
         }
     }
 }

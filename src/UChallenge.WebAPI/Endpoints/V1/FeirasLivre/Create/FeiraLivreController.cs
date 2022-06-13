@@ -1,6 +1,7 @@
 ﻿using FluentMediator;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 using UChallenge.Application.UseCases.V1.FeiraLivreUseCases.Create;
 using UChallenge.Framework.WebAPI.Endpoints;
@@ -14,8 +15,10 @@ namespace UChallenge.WebAPI.Endpoints.V1.FeirasLivre.Create
         BaseController<Presenter>
     {
 
-        public FeiraLivreController(IMediator mediator, Presenter presenter) :
-            base(mediator, presenter)
+        public FeiraLivreController(
+            IMediator mediator,
+            Presenter presenter,
+            ILogger<Presenter> logger) : base(mediator, presenter, logger)
         {
 
         }
@@ -36,6 +39,8 @@ namespace UChallenge.WebAPI.Endpoints.V1.FeirasLivre.Create
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Post([FromBody] RequestDTO requestDTO)
         {
+            _logger.LogInformation("Request begins:", requestDTO);
+
             var inputData = new InputData(
                 requestDTO.Id,
                 requestDTO.Nome,

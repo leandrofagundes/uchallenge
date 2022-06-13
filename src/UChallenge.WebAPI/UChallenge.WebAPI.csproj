@@ -10,7 +10,14 @@
 		<NoWarn>1701;1702;1591;IDE0066</NoWarn>
 	</PropertyGroup>
 	<ItemGroup>
+	  <Compile Remove="Logs\**" />
+	  <Content Remove="Logs\**" />
+	  <EmbeddedResource Remove="Logs\**" />
+	  <None Remove="Logs\**" />
+	</ItemGroup>
+	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
+		<PackageReference Include="Serilog.AspnetCore" Version="5.0.0" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
 	</ItemGroup>
 
